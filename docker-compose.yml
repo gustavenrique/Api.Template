@@ -1,0 +1,104 @@
+version: '3.8'
+
+services:
+    api-template:
+        container_name: brand-api-template
+        image: brand/api/template
+        build:
+            context: .
+            dockerfile: ./src/Api/Dockerfile
+            args:
+                KEYVAULT_URL: https://kv-brand-dev.vault.azure.net/
+        ports:
+            - 8080:8080
+            - 8081:8081
+        restart: unless-stopped
+        networks:
+            - brand
+
+    elasticsearch:
+        container_name: brand-elastic
+        image: docker.elastic.co/elasticsearch/elasticsearch:8.12.2
+        volumes:
+            - elastic-data:/usr/share/elasticsearch/data
+        environment:
+            - cluster.name=brand-elastic
+            - discovery.type=single-node
+            - xpack.security.enabled=false
+            - xpack.security.enrollment.enabled=false
+            - bootstrap.memory_lock=true
+            - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+        ports:
+            - 9200:9200
+        ulimits:
+            memlock:
+                soft: -1
+                hard: -1
+            nofile:
+                soft: 65536
+                hard: 65536
+        deploy:
+            restart_policy:
+                condition: on-failure
+                delay: 10s
+                max_attempts: 3
+                window: 120s
+        networks:
+            - brand
+
+    kibana:
+        container_name: brand-kibana
+        image: docker.elastic.co/kibana/kibana:8.12.2
+        volumes:
+            - kibana-data:/usr/share/elasticsearch/data
+        restart: unless-stopped
+        ports:
+            - 5601:5601
+        environment:
+            ELASTICSEARCH_URL: http://elasticsearch:9200
+            ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+            xpack.fleet.agents.tlsCheckDisabled: true
+        depends_on:
+            - elasticsearch
+        networks:
+            - brand
+
+    prometheus:
+        container_name: brand-prometheus
+        image: prom/prometheus:v2.50.1
+        volumes:
+            - ../prometheus.yaml:/etc/prometheus/prometheus.yml
+            - prometheus-data:/prometheus
+        depends_on:     
+            - api-template
+        ports:
+            - 9090:9090
+        networks:
+            - brand
+
+    # db-log:
+    #     container_name: brand-db-log
+    #     image: mcr.microsoft.com/mssql/server:2022-latest
+    #     user: root
+    #     environment:
+    #         ACCEPT_EULA: Y
+    #         MSSQL_SA_PASSWORD: sqlserver2024!
+    #     volumes:
+    #         - log:/var/opt/mssql/data
+    #     ports:
+    #         - 1433:1433
+    #     networks:
+    #         - brand
+
+volumes:
+    elastic-data:
+        name: brand-elastic
+    kibana-data:
+        name: brand-kibana
+    prometheus-data:
+        name: brand-prometheus
+
+networks:
+    brand:
+        name: brand
+        driver: bridge

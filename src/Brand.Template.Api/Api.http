@@ -1,0 +1,26 @@
+@baseUrl = http://localhost:5150
+@token = b1ee3cd3fb864707996fb24acb7891d2
+
+# Health Check
+
+GET {{baseUrl}}/_health
+Api-Key: {{token}}
+
+# Tempos Controller
+
+### Busca temperatura da cidade 
+GET {{baseUrl}}/api/v1/tempos/Londres
+Accept: application/json
+Api-Key: {{token}}
+
+### Diminui a temperatura de uma cidade, na quantidade especificada em Celsius (sqn)
+PATCH {{baseUrl}}/api/v1/tempos/diminuir-temperatura
+Content-Type: application/json
+Accept: application/json
+Api-Key: {{token}} 
+
+{
+  "cidade": "São Paulo",
+  "celsius_diminuidos": 3
+}
+###

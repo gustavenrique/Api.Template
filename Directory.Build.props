@@ -1,0 +1,27 @@
+<Project>
+    <PropertyGroup>
+        <UserSecretsId>d0e79c52-7784-4098-933b-5eabfaebe774</UserSecretsId>
+        
+        <LangVersion>12</LangVersion>
+        <TargetFramework>net8.0</TargetFramework>
+
+        <AnalysisMode>All</AnalysisMode>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>     
+        <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <InvariantGlobalization>false</InvariantGlobalization>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference 
+            Include="SonarAnalyzer.CSharp" 
+            Version="9.20.0.85982"
+            PrivateAssets="all"
+            IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"
+        />
+    </ItemGroup>
+</Project>
