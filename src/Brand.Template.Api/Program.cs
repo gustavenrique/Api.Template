@@ -1,8 +1,8 @@
 using Brand.Template.Api;
 using Brand.Template.Api.Middlewares;
 using Brand.Template.Application;
-using HealthChecks.UI.Client;
 using Brand.Template.Infra;
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Presentation.Middleware;
 using Prometheus;
@@ -33,7 +33,7 @@ if (!app.Environment.IsProduction())
         .UseSwagger(o => o.RouteTemplate = "api/{documentName}/swagger.{json|yaml}")
         .UseSwaggerUI(o =>
         {
-            o.SwaggerEndpoint("/api/v1/swagger.json", "API Configura��o v1");
+            o.SwaggerEndpoint("/api/v1/swagger.json", "API Template v1");
             o.InjectStylesheet("/swagger.css");
             o.RoutePrefix = "docs";
         })

@@ -45,27 +45,29 @@ public static class DependencyInjection
             .GetRequiredSection(nameof(Settings.KeyVault))
             .Get<Settings.KeyVault>()!;
 
-        bool rodandoLocal = keyVault is not { ClientId: null, TenantId: null, ClientSecret: null };
+        if (string.IsNullOrEmpty(keyVault.Url))
+        {
+            bool rodandoLocal = keyVault is not { ClientId: null, TenantId: null, ClientSecret: null };
 
-        if (rodandoLocal)
-            config.AddAzureKeyVault(
-                new SecretClient(
+            if (rodandoLocal)
+                config.AddAzureKeyVault(
+                    new SecretClient(
+                        new Uri(keyVault.Url),
+                        new ClientSecretCredential(
+                            keyVault.TenantId,
+                            keyVault.ClientId,
+                            keyVault.ClientSecret
+                        )
+                    ),
+                    new AzureKeyVaultConfigurationOptions()
+                );
+            else // se estiver rodando em cloud, usa managed identity
+                config.AddAzureKeyVault(
                     new Uri(keyVault.Url),
-                    new ClientSecretCredential(
-                        keyVault.TenantId,
-                        keyVault.ClientId,
-                        keyVault.ClientSecret
-                    )
-                ),
-                new AzureKeyVaultConfigurationOptions()
-            );
-        else // se estiver rodando em cloud, usa managed identity
-            config.AddAzureKeyVault(
-                new Uri(keyVault.Url),
-                new DefaultAzureCredential()
-            );
+                    new DefaultAzureCredential()
+                );
+        }
 
-        // TODO: refatorar para injetar cada api/db específico como keyed service
         services
             .Configure<Settings.Api>(config.GetSection(nameof(Settings.Api)))
             .Configure<Settings.Database>(config.GetSection(nameof(Settings.Database)));
@@ -84,8 +86,7 @@ public static class DependencyInjection
         Settings.Api apiSettings
     )
     {
-        services
-            .AddHealthChecks()
+        services.AddHealthChecks()
             .AddSqlServer(
                 name: "DB-Log",
                 connectionString: dbSettings.Log.ConnectionString,

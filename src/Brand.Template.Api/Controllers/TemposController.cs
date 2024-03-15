@@ -1,12 +1,12 @@
+using Asp.Versioning;
 using Brand.Template.Api.Filter;
 using Brand.Template.Application.Tempos;
 using Brand.Template.Application.Tempos.Abstractions;
-using Asp.Versioning;
 using Brand.Template.Domain.Tempos.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using SharedKernel.ResultType;
 
-namespace Brand.ApiConfiguracao.Controllers;
+namespace Brand.Template.Api.Controllers;
 
 [ApiController]
 [ApiVersion("1.0")]

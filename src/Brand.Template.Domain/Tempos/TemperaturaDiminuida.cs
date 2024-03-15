@@ -3,7 +3,7 @@ using SharedKernel.Abstractions.Events;
 
 namespace Brand.Template.Domain.Tempos;
 
-public sealed record TemperaturaDiminuidaEvent(
+public sealed record TemperaturaDiminuida(
     [property: JsonPropertyName("tempo_id")]
     int TempoId,
 

@@ -1,6 +1,30 @@
 # Brand-Api-Template
 Esta é uma template, que pode ser usada como base para APIs potencialmente complexas e monstruosas.
 
+Como testar:
+```bash
+git clone https://github.com/gustavenrique/Api.Template.git
+
+dotnet run --project Api.Template/src/Brand.Template.Api/Brand.Template.Api.csproj
+
+# Abrir http://localhost:5150/docs
+```
+
+# Secret Management
+
+O arquivo `Directory.Build.props` possui a prop de UserSecretsId. A intenção de tal prop é buscar as credenciais de algum Azure Key Vault, que contenha todas as secrets necessárias. Para tudo funcionar, o diretório `~/appdata/roaming/microsoft/usersecrets/d0e79c52-7784-4098-933b-5eabfaebe774` precisa ter o arquivo `secrets.json` com as seguintes propriedades:
+
+```json
+{
+  "KeyVault:Url": "https://xpto.vault.azure.net/",
+  "KeyVault:TenantId": "00000000-0000-0000-0000-000000000000",
+  "KeyVault:ClientId": "00000000-0000-0000-0000-000000000000",
+  "KeyVault:ClientSecret": "secret-xpto"
+}
+```
+
+Vale mencionar que o Client, representando um Service Principal, por exemplo, precisa ter a access policy configurada para acesso ao Get e List do key vault.
+
 # Health check
 O health check deve verificar a disponibilidade de todos os serviços externos usados pela API,
 desde bancos e APIs, até serviços de service bus. Portanto, sempre que fizermos uma adição/exclusão de serviços externos consumidos,

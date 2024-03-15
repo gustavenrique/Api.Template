@@ -38,7 +38,7 @@ public sealed class Tempo(
 
         Temperatura = novaTemperatura.Value!;
 
-        Raise(new TemperaturaDiminuidaEvent(
+        Raise(new TemperaturaDiminuida(
             Id,
             temperaturaAntiga,
             Temperatura.Celsius

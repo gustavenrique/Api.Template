@@ -9,18 +9,14 @@ internal sealed class EventDispatcher(ILogger<EventDispatcher> logger, IPublishe
     private readonly ILogger<EventDispatcher> _logger = logger;
     private readonly IPublisher _publisher = publisher;
 
-    public void Dispatch(IEvent @event)
-    {
-        Queue<IEvent> q = new();
-
-        q.Enqueue(@event);
-
-        Dispatch(q);
-    }
+    public void Dispatch(IEvent @event) => Dispatch([@event]);
 
     public void Dispatch(IReadOnlyCollection<IEvent> events)
     {
-        _logger.LogDebug("Iniciando disparo de domain events");
+        if (_logger.IsEnabled(LogLevel.Debug))
+        {
+            _logger.LogDebug("Iniciando disparo de domain events");
+        }
 
         Task.Run(async () =>
         {

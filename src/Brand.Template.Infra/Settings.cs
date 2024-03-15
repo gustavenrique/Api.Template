@@ -32,7 +32,7 @@ public static class Settings
     /// </summary>
     public sealed class Database
     {
-        public required Options.Sql Configuracao { get; init; }
+        public required Options.Sql Xpto { get; init; }
         public required Options.Sql Log { get; init; }
     }
 
