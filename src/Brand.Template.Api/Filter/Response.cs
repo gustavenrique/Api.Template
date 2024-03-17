@@ -2,7 +2,7 @@
 
 namespace Brand.Template.Api.Filter;
 
-public sealed record Response<T>
+internal sealed record Response<T>
 {
     [JsonPropertyName("data")]
     public T? Data { get; init; }

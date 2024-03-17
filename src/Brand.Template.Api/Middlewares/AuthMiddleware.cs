@@ -6,10 +6,10 @@ using Microsoft.Extensions.Options;
 namespace Presentation.Middleware;
 
 internal sealed class AuthMiddleware(
-    IOptionsSnapshot<Settings.Auth> securitySettings
+    IOptionsMonitor<Settings.Auth> securitySettings
 ) : IMiddleware
 {
-    private Settings.Auth _auth => securitySettings.Value;
+    readonly Settings.Auth _auth = securitySettings.CurrentValue;
 
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {

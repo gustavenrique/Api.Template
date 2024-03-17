@@ -18,11 +18,11 @@ internal sealed class TempoService(
     IEventDispatcher eventDispatcher
 ) : ITempoService
 {
-    private ITempoRepository _tempoRepository => tempoRepository;
-    private ICidadeService _cidadeService => cidadeService;
-    private ILogger<TempoService> _logger => logger;
-    private IMapper _mapper => mapper;
-    private IEventDispatcher _eventDispatcher => eventDispatcher;
+    readonly ITempoRepository _tempoRepository = tempoRepository;
+    readonly ICidadeService _cidadeService = cidadeService;
+    readonly ILogger<TempoService> _logger = logger;
+    readonly IMapper _mapper = mapper;
+    readonly IEventDispatcher _eventDispatcher = eventDispatcher;
 
     public async Task<Result<TempoDto?>> BuscarPorCidade(string cidade)
     {
@@ -66,11 +66,13 @@ internal sealed class TempoService(
 
         if (result.IsFailure)
         {
+            _logger.LogError("Ocorreu um erro ao tentar diminuir a temperatura - Result: {@Result}", result);
+
             return new(result);
         }
 
         _eventDispatcher.Dispatch(tempo.PopEvents());
 
-        return Result.Empty();
+        return Result.Empty;
     }
 }

@@ -44,6 +44,6 @@ public sealed class Tempo(
             Temperatura.Celsius
         ));
 
-        return Result.Empty();
+        return Result.Empty;
     }
 }

@@ -5,9 +5,9 @@ namespace Brand.Template.Application.Tempos.Errors;
 
 internal static class CidadeErrors
 {
-    internal static readonly Result<CidadeDto?> CidadeInvalida =
+    internal static readonly Result<CidadeDto?> InputInvalido =
         Result<CidadeDto?>.InvalidInput(["Nome da cidade não preenchido corretamente"]);
 
-    internal static readonly Result<CidadeDto?> CidadeNaoEncontrada =
-        Result<CidadeDto?>.Empty();
+    internal static readonly Result<CidadeDto?> CidadeInexistente =
+        Result<CidadeDto?>.Empty;
 }

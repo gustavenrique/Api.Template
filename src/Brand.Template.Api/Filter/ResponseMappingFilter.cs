@@ -1,8 +1,6 @@
 ﻿using MapsterMapper;
-
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-
 using SharedKernel.Abstractions.ResultType;
 using SharedKernel.ResultType;
 
@@ -13,8 +11,8 @@ internal sealed class ResponseMappingFilter(
     ILogger<ResponseMappingFilter> logger
 ) : IActionFilter
 {
-    private IMapper _mapper => mapper;
-    private ILogger _logger => logger;
+    readonly IMapper _mapper = mapper;
+    readonly ILogger _logger = logger;
 
     public void OnActionExecuting(ActionExecutingContext context) { }
 

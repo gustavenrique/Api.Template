@@ -59,7 +59,7 @@ internal static partial class Fakes
 
                 Raise(new EmailAlteradoEvent(Id, emailAntigo, Email));
 
-                return Result.Empty();
+                return Result.Empty;
             }
         }
 
@@ -97,6 +97,5 @@ internal static partial class Fakes
             public Exemplo(string id, string descricao) : base(id) =>
                 Descricao = descricao;
         }
-
     }
 }

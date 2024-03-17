@@ -37,7 +37,7 @@ public partial record Result
     public static Result Created(IEnumerable<string>? messages = null) =>
         new(ResultReason.Created, messages ?? []);
 
-    public static Result Empty() => new(ResultReason.Empty, []);
+    public readonly static Result Empty = new(ResultReason.Empty, []);
     #endregion
 
     #region Failure

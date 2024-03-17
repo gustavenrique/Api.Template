@@ -26,7 +26,7 @@ public partial record Result<TValue> : Result
     public static Result<TValue> Created(TValue value, IEnumerable<string>? messages = null) =>
         new(value, ResultReason.Created, messages ?? []);
 
-    public new static Result<TValue> Empty() => new(default, ResultReason.Empty, []);
+    public new readonly static Result<TValue> Empty = new(default, ResultReason.Empty, []);
     #endregion
 
     #region Failure

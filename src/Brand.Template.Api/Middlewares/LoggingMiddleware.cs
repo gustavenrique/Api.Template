@@ -4,7 +4,7 @@ namespace Brand.Template.Api.Middlewares;
 
 internal sealed class LoggingMiddleware : IMiddleware
 {
-    private static string[] _correlationIdHeaderKeys => ["correlation-id", "x-correlation-id"];
+    readonly static string[] _correlationIdHeaderKeys = ["correlation-id", "x-correlation-id"];
 
     public Task InvokeAsync(HttpContext context, RequestDelegate next)
     {

@@ -18,7 +18,7 @@ public abstract class Entity<TId>(TId id) : IEquatable<Entity<TId>>
 {
     private Queue<IEvent> _events = [];
 
-    public TId Id => id;
+    public TId Id { get; init; } = id;
 
     /// <summary>
     /// Registra o acontecimento de um domain event

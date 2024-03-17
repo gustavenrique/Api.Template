@@ -1,0 +1,4 @@
+[ ] Implementar Parameter Object pattern
+    [ ] Criar Filter conversor de request objects
+[ ] Refatorar Result object
+[ ] Usar OneOf library

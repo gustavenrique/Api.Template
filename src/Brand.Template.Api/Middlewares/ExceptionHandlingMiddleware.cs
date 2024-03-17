@@ -4,7 +4,7 @@ namespace Presentation.Middleware;
 
 internal sealed class ExceptionHandlingMiddleware(ILogger<ExceptionHandlingMiddleware> logger) : IMiddleware
 {
-    private ILogger<ExceptionHandlingMiddleware> _logger => logger;
+    readonly ILogger<ExceptionHandlingMiddleware> _logger = logger;
 
     readonly record struct Error(
         bool Ocurred,

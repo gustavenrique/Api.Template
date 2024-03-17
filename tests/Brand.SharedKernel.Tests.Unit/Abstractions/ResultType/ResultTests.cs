@@ -40,10 +40,10 @@ public sealed class ResultTests
     }
 
     [Fact(DisplayName = "Empty - Contém ResultReason correto")]
-    internal void EmptyMethod_QuandoChamado_ArmazenaReasonCorreto()
+    internal void EmptyProperty_QuandoAcessado_RetornaReasonCorreto()
     {
         // Act
-        Result result = Result.Empty();
+        Result result = Result.Empty;
 
         // Assert
         result.Messages.Should().BeEmpty();
