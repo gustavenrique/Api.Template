@@ -2,7 +2,7 @@
 
 namespace SharedKernel.ResultType;
 
-public partial record Result<TValue> : Result
+public record Result<TValue> : Result
 {
     /// <summary>
     /// Valor do resultado da(s) operação(ões)

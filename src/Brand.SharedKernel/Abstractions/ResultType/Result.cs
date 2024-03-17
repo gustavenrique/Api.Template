@@ -2,7 +2,7 @@
 
 namespace SharedKernel.ResultType;
 
-public partial record Result
+public record Result
 {
     public ResultReason Reason { get; init; }
 
