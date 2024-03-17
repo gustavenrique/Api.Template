@@ -3,9 +3,9 @@ Esta é uma template, que pode ser usada como base para APIs potencialmente comp
 
 Como testar:
 ```bash
-git clone https://github.com/gustavenrique/Api.Template.git
+git clone https://github.com/gustavenrique/Template.Api.git
 
-dotnet run --project Api.Template/src/Brand.Template.Api/Brand.Template.Api.csproj
+dotnet run --project Template.Api/src/Brand.Template.Api/Brand.Template.Api.csproj
 
 # Abrir http://localhost:5150/docs
 ```
