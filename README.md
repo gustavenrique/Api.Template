@@ -10,6 +10,22 @@ dotnet run --project Template.Api/src/Brand.Template.Api/Brand.Template.Api.cspr
 # Abrir http://localhost:5150/docs
 ```
 
+# Libraries
+Estas são as principais libraries externas usadas para lidar com problemas genéricos:
+
+- Logging: [Serilog](https://serilog.net/)
+- Auto-mapping: [Mapster](https://github.com/MapsterMapper/Mapster)
+- Persistence: [Dapper](https://github.com/DapperLib/Dapper)
+- Resilience: [Polly](https://github.com/App-vNext/Polly?tab=readme-ov-file#polly)
+- Code Analysis: [SonarAnalyzer](https://github.com/SonarSource/sonar-dotnet)
+- Testing:
+  - [XUnit](https://xunit.net/)
+  - [NSubstitute](https://github.com/nsubstitute/NSubstitute?tab=readme-ov-file#nsubstitute)
+  - [FluentAssertions](https://fluentassertions.com/)
+- Outros:
+  - [MediatR](https://github.com/jbogard/MediatR?tab=readme-ov-file#mediatr)
+  - [Refit](https://github.com/reactiveui/refit?tab=readme-ov-file#refit-the-automatic-type-safe-rest-library-for-net-core-xamarin-and-net)
+
 # Secret Management
 
 O arquivo `Directory.Build.props` possui a prop de UserSecretsId. A intenção de tal prop é buscar as credenciais de algum Azure Key Vault, que contenha todas as secrets necessárias. Para tudo funcionar, o diretório `~/appdata/roaming/microsoft/usersecrets/d0e79c52-7784-4098-933b-5eabfaebe774` precisa ter o arquivo `secrets.json` com as seguintes propriedades:
@@ -42,7 +58,7 @@ de modo a facilitar rollback e/ou evitar bugs inesperados. Alguns exemplos de ce
 - Ajuste em path de endpoint
 
 # Metrics
-Atualmente, usamos o Prometheus como repositório de métricas. As métricas da aplicação, 
+Partindo da premissa de que o Prometheus seria como repositório de métricas, as métricas da aplicação, 
 incluindo health check e consumo de computing resources, são expostas através do meta endpoint `/_metrics`.
 Ou seja, é este o endpoint que deve ser configurado no servidor do Prometheus, tal como ilustrado no prometheus.yaml abaixo:
 
