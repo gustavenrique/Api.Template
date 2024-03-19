@@ -177,81 +177,77 @@ csharp_preserve_single_line_statements = true
 
 # Naming rules
 
-dotnet_naming_rule.types_and_namespaces_should_be_pascalcase.severity = error
-dotnet_naming_rule.types_and_namespaces_should_be_pascalcase.symbols = types_and_namespaces
-dotnet_naming_rule.types_and_namespaces_should_be_pascalcase.style = pascalcase
+dotnet_naming_rule.types_and_namespaces_must_be_pascalcase.severity = error
+dotnet_naming_rule.types_and_namespaces_must_be_pascalcase.symbols = types_and_namespaces
+dotnet_naming_rule.types_and_namespaces_must_be_pascalcase.style = pascalcase
 
-dotnet_naming_rule.interfaces_should_be_ipascalcase.severity = error
-dotnet_naming_rule.interfaces_should_be_ipascalcase.symbols = interfaces
-dotnet_naming_rule.interfaces_should_be_ipascalcase.style = ipascalcase
+dotnet_naming_rule.interfaces_must_be_ipascalcase.severity = error
+dotnet_naming_rule.interfaces_must_be_ipascalcase.symbols = interfaces
+dotnet_naming_rule.interfaces_must_be_ipascalcase.style = ipascalcase
 
-dotnet_naming_rule.type_parameters_should_be_tpascalcase.severity = suggestion
-dotnet_naming_rule.type_parameters_should_be_tpascalcase.symbols = type_parameters
-dotnet_naming_rule.type_parameters_should_be_tpascalcase.style = tpascalcase
+dotnet_naming_rule.type_parameters_must_be_tpascalcase.severity = error
+dotnet_naming_rule.type_parameters_must_be_tpascalcase.symbols = type_parameters
+dotnet_naming_rule.type_parameters_must_be_tpascalcase.style = tpascalcase
 
-dotnet_naming_rule.methods_should_be_pascalcase.severity = error
-dotnet_naming_rule.methods_should_be_pascalcase.symbols = methods
-dotnet_naming_rule.methods_should_be_pascalcase.style = pascalcase
+dotnet_naming_rule.methods_must_be_pascalcase.severity = error
+dotnet_naming_rule.methods_must_be_pascalcase.symbols = methods
+dotnet_naming_rule.methods_must_be_pascalcase.style = pascalcase
 
-dotnet_naming_rule.properties_should_be_pascalcase.severity = error
-dotnet_naming_rule.properties_should_be_pascalcase.symbols = properties
-dotnet_naming_rule.properties_should_be_pascalcase.style = pascalcase
+dotnet_naming_rule.properties_must_be_pascalcase.severity = error
+dotnet_naming_rule.properties_must_be_pascalcase.symbols = properties
+dotnet_naming_rule.properties_must_be_pascalcase.style = pascalcase
 
-dotnet_naming_rule.events_should_be_pascalcase.severity = suggestion
-dotnet_naming_rule.events_should_be_pascalcase.symbols = events
-dotnet_naming_rule.events_should_be_pascalcase.style = pascalcase
+dotnet_naming_rule.events_must_be_pascalcase.severity = error
+dotnet_naming_rule.events_must_be_pascalcase.symbols = events
+dotnet_naming_rule.events_must_be_pascalcase.style = pascalcase
 
-dotnet_naming_rule.local_variables_should_be_camelcase.severity = error
-dotnet_naming_rule.local_variables_should_be_camelcase.symbols = local_variables
-dotnet_naming_rule.local_variables_should_be_camelcase.style = camelcase
+dotnet_naming_rule.local_variables_must_be_camelcase.severity = error
+dotnet_naming_rule.local_variables_must_be_camelcase.symbols = local_variables
+dotnet_naming_rule.local_variables_must_be_camelcase.style = camelcase
 
-dotnet_naming_rule.local_constants_should_be_camelcase.severity = suggestion
-dotnet_naming_rule.local_constants_should_be_camelcase.symbols = local_constants
-dotnet_naming_rule.local_constants_should_be_camelcase.style = camelcase
+dotnet_naming_rule.local_constants_must_be_camelcase.severity = error
+dotnet_naming_rule.local_constants_must_be_camelcase.symbols = local_constants
+dotnet_naming_rule.local_constants_must_be_camelcase.style = camelcase
 
-dotnet_naming_rule.parameters_should_be_camelcase.severity = error
-dotnet_naming_rule.parameters_should_be_camelcase.symbols = parameters
-dotnet_naming_rule.parameters_should_be_camelcase.style = camelcase
+dotnet_naming_rule.parameters_must_be_camelcase.severity = error
+dotnet_naming_rule.parameters_must_be_camelcase.symbols = parameters
+dotnet_naming_rule.parameters_must_be_camelcase.style = camelcase
 
-dotnet_naming_rule.public_fields_should_be_pascalcase.severity = error
-dotnet_naming_rule.public_fields_should_be_pascalcase.symbols = public_fields
-dotnet_naming_rule.public_fields_should_be_pascalcase.style = pascalcase
+dotnet_naming_rule.public_fields_must_be_pascalcase.severity = error
+dotnet_naming_rule.public_fields_must_be_pascalcase.symbols = public_fields
+dotnet_naming_rule.public_fields_must_be_pascalcase.style = pascalcase
 
-dotnet_naming_rule.private_fields_should_be__camelcase.severity = error
-dotnet_naming_rule.private_fields_should_be__camelcase.symbols = private_fields
-dotnet_naming_rule.private_fields_should_be__camelcase.style = _camelcase
+dotnet_naming_rule.private_fields_must_be__camelcase.severity = error
+dotnet_naming_rule.private_fields_must_be__camelcase.symbols = private_fields
+dotnet_naming_rule.private_fields_must_be__camelcase.style = _camelcase
 
-dotnet_naming_rule.private_static_fields_should_be_s_camelcase.severity = suggestion
-dotnet_naming_rule.private_static_fields_should_be_s_camelcase.symbols = private_static_fields
-dotnet_naming_rule.private_static_fields_should_be_s_camelcase.style = s_camelcase
+dotnet_naming_rule.private_static_fields_must_be_s_camelcase.severity = error
+dotnet_naming_rule.private_static_fields_must_be_s_camelcase.symbols = private_static_fields
+dotnet_naming_rule.private_static_fields_must_be_s_camelcase.style = s_camelcase
 
-dotnet_naming_rule.public_constant_fields_should_be_pascalcase.severity = suggestion
-dotnet_naming_rule.public_constant_fields_should_be_pascalcase.symbols = public_constant_fields
-dotnet_naming_rule.public_constant_fields_should_be_pascalcase.style = pascalcase
+dotnet_naming_rule.public_constant_fields_must_be_pascalcase.severity = error
+dotnet_naming_rule.public_constant_fields_must_be_pascalcase.symbols = public_constant_fields
+dotnet_naming_rule.public_constant_fields_must_be_pascalcase.style = pascalcase
 
-dotnet_naming_rule.private_constant_fields_should_be_pascalcase.severity = suggestion
-dotnet_naming_rule.private_constant_fields_should_be_pascalcase.symbols = private_constant_fields
-dotnet_naming_rule.private_constant_fields_should_be_pascalcase.style = pascalcase
+dotnet_naming_rule.private_constant_fields_must_be_pascalcase.severity = error
+dotnet_naming_rule.private_constant_fields_must_be_pascalcase.symbols = private_constant_fields
+dotnet_naming_rule.private_constant_fields_must_be_pascalcase.style = pascalcase
 
-dotnet_naming_rule.public_static_readonly_fields_should_be_pascalcase.severity = suggestion
-dotnet_naming_rule.public_static_readonly_fields_should_be_pascalcase.symbols = public_static_readonly_fields
-dotnet_naming_rule.public_static_readonly_fields_should_be_pascalcase.style = pascalcase
+dotnet_naming_rule.public_static_readonly_fields_must_be_pascalcase.severity = error
+dotnet_naming_rule.public_static_readonly_fields_must_be_pascalcase.symbols = public_static_readonly_fields
+dotnet_naming_rule.public_static_readonly_fields_must_be_pascalcase.style = pascalcase
 
-dotnet_naming_rule.private_static_readonly_fields_should_be_pascalcase.severity = suggestion
-dotnet_naming_rule.private_static_readonly_fields_should_be_pascalcase.symbols = private_static_readonly_fields
-dotnet_naming_rule.private_static_readonly_fields_should_be_pascalcase.style = pascalcase
+dotnet_naming_rule.enums_must_be_pascalcase.severity = error
+dotnet_naming_rule.enums_must_be_pascalcase.symbols = enums
+dotnet_naming_rule.enums_must_be_pascalcase.style = pascalcase
 
-dotnet_naming_rule.enums_should_be_pascalcase.severity = error
-dotnet_naming_rule.enums_should_be_pascalcase.symbols = enums
-dotnet_naming_rule.enums_should_be_pascalcase.style = pascalcase
+dotnet_naming_rule.local_functions_must_be_pascalcase.severity = error
+dotnet_naming_rule.local_functions_must_be_pascalcase.symbols = local_functions
+dotnet_naming_rule.local_functions_must_be_pascalcase.style = pascalcase
 
-dotnet_naming_rule.local_functions_should_be_pascalcase.severity = error
-dotnet_naming_rule.local_functions_should_be_pascalcase.symbols = local_functions
-dotnet_naming_rule.local_functions_should_be_pascalcase.style = pascalcase
-
-dotnet_naming_rule.non_field_members_should_be_pascalcase.severity = error
-dotnet_naming_rule.non_field_members_should_be_pascalcase.symbols = non_field_members
-dotnet_naming_rule.non_field_members_should_be_pascalcase.style = pascalcase
+dotnet_naming_rule.non_field_members_must_be_pascalcase.severity = error
+dotnet_naming_rule.non_field_members_must_be_pascalcase.symbols = non_field_members
+dotnet_naming_rule.non_field_members_must_be_pascalcase.style = pascalcase
 
 # Symbol specifications
 
@@ -363,14 +359,16 @@ dotnet_naming_style.s_camelcase.required_suffix =
 dotnet_naming_style.s_camelcase.word_separator = 
 dotnet_naming_style.s_camelcase.capitalization = camel_case
 
-
 # Custom configurations
+
+# IDE1006: Naming rule violation
+dotnet_diagnostic.IDE1006.severity = error
 
 # SA1600: Elements should be documented
 dotnet_diagnostic.SA1600.severity = none
 
 # SA1602: Enum Elements should be documented
-dotnet_diagnostic.SA1602.severity = none
+dotnet_diagnostic.SA1602.severity = suggestion
 
 # SA1633: File must have header
 dotnet_diagnostic.SA1633.severity = none
@@ -413,9 +411,6 @@ dotnet_diagnostic.SA1402.severity = none
 
 # SA1601: Partial elements should be documented
 dotnet_diagnostic.SA1601.severity = none
-
-# IDE1006: Prefix '_' is not expected
-dotnet_diagnostic.IDE1006.severity = none
 
 # SA1615: Element return value should be documented
 dotnet_diagnostic.SA1615.severity = none
@@ -498,6 +493,9 @@ dotnet_diagnostic.CA1008.severity = none
 
 # CA1028: Enum storage should be Int32
 dotnet_diagnostic.CA1028.severity = none
+
+# IDE0200: Remove unnecessary lambda expression
+dotnet_diagnostic.IDE0200.severity = error
 
 [**/Migrations/*]
 generated_code = true
