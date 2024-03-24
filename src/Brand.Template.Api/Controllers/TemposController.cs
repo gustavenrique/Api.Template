@@ -1,5 +1,5 @@
 using Asp.Versioning;
-using Brand.Template.Api.Filter;
+using Brand.Template.Api.Filter.ResponseMapping;
 using Brand.Template.Application.Tempos;
 using Brand.Template.Application.Tempos.Abstractions;
 using Brand.Template.Domain.Tempos.Dtos;

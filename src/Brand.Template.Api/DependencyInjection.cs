@@ -1,6 +1,6 @@
 ﻿using Asp.Versioning;
 using Brand.Template.Api.Filter;
-using Brand.Template.Api.Middlewares;
+using Brand.Template.Api.Filter.ResponseMapping;
 using Mapster;
 using MapsterMapper;
 using Microsoft.Extensions.Options;
@@ -93,11 +93,12 @@ internal static class DependencyInjection
     private static IServiceCollection AddMiddlewares(this IServiceCollection services)
     {
         services.AddControllers(options =>
-            options.Filters.Add<ResponseMappingFilter>()
-        );
+        {
+            options.Filters.Add<LoggingFilter>();
+            options.Filters.Add<ResponseMappingFilter>();
+        });
 
         return services
-            .AddTransient<LoggingMiddleware>()
             .AddTransient<AuthMiddleware>()
             .AddSingleton<ExceptionHandlingMiddleware>();
     }

@@ -39,9 +39,9 @@ internal static partial class Fakes
 
         internal sealed record Email : IValueObject
         {
-            private const string _pattern = @"^.+@.+\..+$";
-            private const byte _maxLength = 100;
-            private const byte _minLength = 4;
+            private const string Pattern = @"^.+@.+\..+$";
+            private const byte MaxLength = 100;
+            private const byte MinLength = 4;
 
             public string Value { get; init; }
 
@@ -55,9 +55,9 @@ internal static partial class Fakes
                 string erro = value switch
                 {
                     var v when string.IsNullOrEmpty(v) => "Email não preenchido",
-                    var v when v.Length < _minLength => $"Email deve ter ao menos {_minLength} caracteres",
-                    var v when v.Length > _maxLength => $"Email não pode ultrapassar {_maxLength} caracteres",
-                    var v when !Regex.IsMatch(v, _pattern) => "Email deve seguir o padrão *@*.*",
+                    var v when v.Length < MinLength => $"Email deve ter ao menos {MinLength} caracteres",
+                    var v when v.Length > MaxLength => $"Email não pode ultrapassar {MaxLength} caracteres",
+                    var v when !Regex.IsMatch(v, Pattern) => "Email deve seguir o padrão *@*.*",
                     _ => string.Empty
                 };
 

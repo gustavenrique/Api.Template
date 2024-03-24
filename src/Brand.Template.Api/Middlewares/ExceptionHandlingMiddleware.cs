@@ -1,4 +1,4 @@
-﻿using Brand.Template.Api.Filter;
+﻿using Brand.Template.Api.Filter.ResponseMapping;
 
 namespace Presentation.Middleware;
 
@@ -32,9 +32,8 @@ internal sealed class ExceptionHandlingMiddleware(ILogger<ExceptionHandlingMiddl
         {
             if (error.Ocurred)
             {
-#pragma warning disable CA2254
-                _logger.LogError(error.Exception, error.Message);
-#pragma warning restore CA2254
+                _logger.LogError(error.Exception, "{Error}", error.Message);
+
                 context.Response.StatusCode = StatusCodes.Status500InternalServerError;
 
                 await context.Response.WriteAsJsonAsync(

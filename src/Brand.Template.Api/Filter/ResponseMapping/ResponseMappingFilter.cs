@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using SharedKernel.Abstractions.ResultType;
 using SharedKernel.ResultType;
 
-namespace Brand.Template.Api.Filter;
+namespace Brand.Template.Api.Filter.ResponseMapping;
 
 /// <summary>
 /// Filter responsável por converter um Result para um Response

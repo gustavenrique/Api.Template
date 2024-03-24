@@ -9,13 +9,18 @@ internal sealed class TemperaturaDiminuidaHandler(
 {
     readonly ILogger<TemperaturaDiminuidaHandler> _logger = logger;
 
-    public Task Handle(TemperaturaDiminuida @event, CancellationToken cancellationToken)
+    public async Task Handle(TemperaturaDiminuida @event, CancellationToken cancellationToken)
     {
         if (_logger.IsEnabled(LogLevel.Information))
         {
-            _logger.LogInformation("[Handle] Evento recebido: {@Evento}", @event);
+            _logger.LogInformation("Evento recebido: {@Evento}", @event);
         }
 
-        return Task.CompletedTask;
+        await Task.Delay(5000, cancellationToken);
+
+        if (_logger.IsEnabled(LogLevel.Information))
+        {
+            _logger.LogInformation("Evento processado");
+        }
     }
 }

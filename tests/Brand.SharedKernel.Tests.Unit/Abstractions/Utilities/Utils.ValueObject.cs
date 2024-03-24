@@ -28,13 +28,13 @@ internal static partial class Utils
         /// </summary>
         public sealed class Iguais : IEnumerable<object[]>
         {
-            List<object[]> _data => [
+            readonly static List<object[]> s_data = [
                 [Criar(), Criar()],
                 [Criar(DateTime.MinValue), Criar(DateTime.MinValue)],
                 [Criar(tag: "Tag 1"), Criar(tag: "Tag 1"),],
             ];
 
-            public IEnumerator<object[]> GetEnumerator() => _data.GetEnumerator();
+            public IEnumerator<object[]> GetEnumerator() => s_data.GetEnumerator();
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         }
 
@@ -43,13 +43,13 @@ internal static partial class Utils
         /// </summary>
         public sealed class Diferentes : IEnumerable<object[]>
         {
-            List<object[]> _data => [
+            readonly static List<object[]> s_data = [
                 [Criar(DateTime.MinValue), Criar()],
                 [Criar(tag: "Tag 1"), Criar(tag: "Tag 2"),],
                 [Criar(categorias: []), Criar(categorias: [9]),]
             ];
 
-            public IEnumerator<object[]> GetEnumerator() => _data.GetEnumerator();
+            public IEnumerator<object[]> GetEnumerator() => s_data.GetEnumerator();
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         }
     }

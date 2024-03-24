@@ -1,5 +1,4 @@
 using Brand.Template.Api;
-using Brand.Template.Api.Middlewares;
 using Brand.Template.Application;
 using Brand.Template.Infra;
 using HealthChecks.UI.Client;
@@ -45,11 +44,7 @@ WebApplication app = builder.Build();
     app
         .UseRouting()
         .UseStaticFiles()
-        .UseMiddleware<LoggingMiddleware>()
         .UseMiddleware<ExceptionHandlingMiddleware>()
-        .UseSerilogRequestLogging(o =>
-            o.MessageTemplate = "HTTP {RequestMethod} {RequestPath} retornou {StatusCode} em {Elapsed:0.0} ms"
-        )
         .UseMiddleware<AuthMiddleware>();
 
     app

@@ -14,8 +14,8 @@ internal sealed class TempoRepository(
     IOptionsMonitor<Settings.Api> apis
 ) : ITempoRepository
 {
-    private IOpenWeatherApiClient _weatherApi => weatherApi;
-    private string _apiToken => apis.CurrentValue.OpenWeather.Token;
+    readonly IOpenWeatherApiClient _weatherApi = weatherApi;
+    readonly string _apiToken = apis.CurrentValue.OpenWeather.Token;
 
     /// <summary>
     /// Busca o tempo corrente da cidade especificada

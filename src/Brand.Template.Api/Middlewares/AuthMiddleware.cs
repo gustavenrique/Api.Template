@@ -1,6 +1,5 @@
 ﻿using Brand.Template.Api;
-using Brand.Template.Api.Filter;
-
+using Brand.Template.Api.Filter.ResponseMapping;
 using Microsoft.Extensions.Options;
 
 namespace Presentation.Middleware;

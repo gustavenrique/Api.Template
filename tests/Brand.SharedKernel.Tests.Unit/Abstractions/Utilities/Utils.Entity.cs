@@ -28,13 +28,13 @@ internal static partial class Utils
         /// </summary>
         public sealed class Iguais : IEnumerable<object[]>
         {
-            List<object[]> _data => [
+            readonly static List<object[]> s_data = [
                 [GerarUsuario(), GerarUsuario()],
                 [GerarLider(), GerarLider()],
                 [GerarExemplo(), GerarExemplo()],
             ];
 
-            public IEnumerator<object[]> GetEnumerator() => _data.GetEnumerator();
+            public IEnumerator<object[]> GetEnumerator() => s_data.GetEnumerator();
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         }
 
@@ -43,13 +43,13 @@ internal static partial class Utils
         /// </summary>
         public sealed class Diferentes : IEnumerable<object[]>
         {
-            List<object[]> _data => [
+            readonly static List<object[]> s_data = [
                 [GerarUsuario(), GerarUsuario("6521a18e-e3e8-418a-9fae-caba9b2227e8")],
                 [GerarLider(), GerarLider(1232)],
                 [GerarExemplo(), GerarExemplo("id")],
             ];
 
-            public IEnumerator<object[]> GetEnumerator() => _data.GetEnumerator();
+            public IEnumerator<object[]> GetEnumerator() => s_data.GetEnumerator();
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         }
     }

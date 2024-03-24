@@ -15,8 +15,8 @@ internal sealed class CidadeRepository(
     IOptionsMonitor<Settings.Api> apis
 ) : ICidadeRepository
 {
-    private IOpenWeatherApiClient _weatherApi => weatherApi;
-    private string _apiToken => apis.CurrentValue.OpenWeather.Token;
+    readonly IOpenWeatherApiClient _weatherApi = weatherApi;
+    readonly string _apiToken = apis.CurrentValue.OpenWeather.Token;
 
     /// <summary>
     /// Busca uma cidade pelo seu nome. 
