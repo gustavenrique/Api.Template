@@ -497,5 +497,20 @@ dotnet_diagnostic.CA1028.severity = none
 # IDE0200: Remove unnecessary lambda expression
 dotnet_diagnostic.IDE0200.severity = error
 
+# S3453: Classes should not have only "private" constructors
+dotnet_diagnostic.S3453.severity = none
+
+# CA2225: Operator overloads have named alternates
+dotnet_diagnostic.CA2225.severity = none
+
+# CS4014: Because this call is not awaited, execution of the current method continues before the call is completed
+dotnet_diagnostic.CS4014.severity = suggestion
+
+# S927: Parameter names should match base declaration and other partial definitions
+dotnet_diagnostic.S927.severity = suggestion
+
+# S2094: Classes should not be empty
+dotnet_diagnostic.S2094.severity = suggestion
+
 [**/Migrations/*]
 generated_code = true

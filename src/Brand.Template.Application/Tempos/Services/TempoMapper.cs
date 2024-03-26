@@ -2,7 +2,7 @@
 using Brand.Template.Domain.Tempos.Models;
 using Brand.Template.Domain.Tempos.Models.ValueObjects;
 
-namespace Brand.Template.Application.Tempos;
+namespace Brand.Template.Application.Tempos.Services;
 internal static class TempoMapper
 {
     /// <summary>

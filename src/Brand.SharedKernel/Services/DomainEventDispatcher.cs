@@ -1,17 +1,17 @@
-﻿using MediatR;
+﻿using Brand.SharedKernel.Abstractions.Events;
+using MediatR;
 using Microsoft.Extensions.Logging;
-using SharedKernel.Abstractions.Events;
 
-namespace SharedKernel.Services;
+namespace Brand.SharedKernel.Services;
 
-internal sealed class EventDispatcher(ILogger<EventDispatcher> logger, IPublisher publisher) : IEventDispatcher
+internal sealed class DomainEventDispatcher(ILogger<DomainEventDispatcher> logger, IPublisher publisher) : IDomainEventDispatcher
 {
-    private readonly ILogger<EventDispatcher> _logger = logger;
+    private readonly ILogger<DomainEventDispatcher> _logger = logger;
     private readonly IPublisher _publisher = publisher;
 
-    public void Dispatch(IEvent @event) => Dispatch([@event]);
+    public void Dispatch(IDomainEvent @event) => Dispatch([@event]);
 
-    public void Dispatch(IReadOnlyCollection<IEvent> events)
+    public void Dispatch(IReadOnlyCollection<IDomainEvent> events)
     {
         if (_logger.IsEnabled(LogLevel.Debug))
         {

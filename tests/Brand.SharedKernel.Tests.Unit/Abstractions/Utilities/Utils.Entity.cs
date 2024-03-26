@@ -1,7 +1,7 @@
 ﻿using System.Collections;
-using static SharedKernel.UnitTests.Abstractions.Utilities.Fakes.Entity;
+using static Brand.SharedKernel.UnitTests.Abstractions.Utilities.Fakes.Entity;
 
-namespace SharedKernel.UnitTests.Abstractions.Utilities;
+namespace Brand.SharedKernel.UnitTests.Abstractions.Utilities;
 
 internal static partial class Utils
 {

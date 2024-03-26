@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Brand.Template.Application.Tempos;
+namespace Brand.Template.Application.Tempos.Dtos;
 
 public readonly record struct DiminuirTemperaturaDto(
     string Cidade,

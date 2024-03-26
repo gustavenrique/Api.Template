@@ -1,11 +1,11 @@
-﻿using Brand.Template.Application.Tempos.Abstractions;
+﻿using Brand.SharedKernel.Types.Output;
+using Brand.Template.Application.Tempos.Abstractions;
 using Brand.Template.Application.Tempos.Errors;
 using Brand.Template.Domain.Tempos.Abstractions;
 using Brand.Template.Domain.Tempos.Dtos;
 using Brand.Template.Domain.Tempos.Models;
 using MapsterMapper;
 using Microsoft.Extensions.Logging;
-using SharedKernel.ResultType;
 
 namespace Brand.Template.Application.Tempos.Services;
 

@@ -1,10 +1,9 @@
-﻿using SharedKernel.Abstractions;
-using SharedKernel.Abstractions.Events;
-using SharedKernel.ResultType;
+﻿using Brand.SharedKernel.Abstractions;
+using Brand.SharedKernel.Abstractions.Events;
+using Brand.SharedKernel.Types.Output;
+using static Brand.SharedKernel.UnitTests.Abstractions.Utilities.Fakes.ValueObject;
 
-using static SharedKernel.UnitTests.Abstractions.Utilities.Fakes.ValueObject;
-
-namespace SharedKernel.UnitTests.Abstractions.Utilities;
+namespace Brand.SharedKernel.UnitTests.Abstractions.Utilities;
 internal static partial class Fakes
 {
     /// <summary>
@@ -67,7 +66,7 @@ internal static partial class Fakes
             Guid UsuarioId,
             Email EmailAntigo,
             Email EmailNovo
-        ) : IEvent;
+        ) : IDomainEvent;
 
         internal sealed class Lider : AggregateRoot<int>
         {

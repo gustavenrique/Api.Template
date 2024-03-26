@@ -1,9 +1,7 @@
-﻿using FluentAssertions;
+﻿using Brand.SharedKernel.Types.Output;
+using FluentAssertions;
 
-using SharedKernel.Abstractions.ResultType;
-using SharedKernel.ResultType;
-
-namespace SharedKernel.UnitTests.Abstractions.ResultType;
+namespace Brand.SharedKernel.UnitTests.Abstractions.ResultType;
 public sealed class ResultTTests
 {
     [Theory(DisplayName = "Ok - Contém ResultReason correto e armazena parâmetros de modo íntegro")]

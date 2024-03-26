@@ -1,8 +1,8 @@
 ﻿using FluentAssertions;
 
-using SharedKernel.UnitTests.Abstractions.Utilities;
+using Brand.SharedKernel.UnitTests.Abstractions.Utilities;
 
-namespace SharedKernel.UnitTests.Abstractions;
+namespace Brand.SharedKernel.UnitTests.Abstractions;
 
 public sealed class ValueObjectTests
 {

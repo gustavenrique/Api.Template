@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Presentation.Middleware;
 using Prometheus;
 using Serilog;
-using SharedKernel;
+using Brand.SharedKernel;
 
 #pragma warning disable S1199
 

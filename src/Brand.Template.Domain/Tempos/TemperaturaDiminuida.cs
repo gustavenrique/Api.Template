@@ -1,5 +1,5 @@
 ﻿using System.Text.Json.Serialization;
-using SharedKernel.Abstractions.Events;
+using Brand.SharedKernel.Abstractions.Events;
 
 namespace Brand.Template.Domain.Tempos;
 
@@ -12,4 +12,4 @@ public sealed record TemperaturaDiminuida(
 
     [property: JsonPropertyName("temperatura_atual")]
     decimal TemperaturaAtual
-) : IEvent;
+) : IDomainEvent;

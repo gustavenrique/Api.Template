@@ -1,10 +1,10 @@
 using Asp.Versioning;
+using Brand.SharedKernel.Types.Output;
 using Brand.Template.Api.Filter.ResponseMapping;
-using Brand.Template.Application.Tempos;
 using Brand.Template.Application.Tempos.Abstractions;
+using Brand.Template.Application.Tempos.Dtos;
 using Brand.Template.Domain.Tempos.Dtos;
 using Microsoft.AspNetCore.Mvc;
-using SharedKernel.ResultType;
 
 namespace Brand.Template.Api.Controllers;
 

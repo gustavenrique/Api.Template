@@ -1,4 +1,4 @@
-﻿namespace SharedKernel.Abstractions;
+﻿namespace Brand.SharedKernel.Abstractions;
 
 /// <summary>
 /// Representa um Aggregate Root e abstrai lógicas de comparação relacionadas

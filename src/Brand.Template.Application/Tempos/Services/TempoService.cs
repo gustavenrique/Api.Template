@@ -1,12 +1,13 @@
-﻿using Brand.Template.Application.Tempos.Abstractions;
+﻿using Brand.SharedKernel.Types.Output;
+using Brand.Template.Application.Tempos.Abstractions;
 using Brand.Template.Application.Tempos.Errors;
 using Brand.Template.Domain.Tempos.Abstractions;
 using Brand.Template.Domain.Tempos.Dtos;
 using Brand.Template.Domain.Tempos.Models;
 using MapsterMapper;
 using Microsoft.Extensions.Logging;
-using SharedKernel.Abstractions.Events;
-using SharedKernel.ResultType;
+using Brand.SharedKernel.Abstractions.Events;
+using Brand.Template.Application.Tempos.Dtos;
 
 namespace Brand.Template.Application.Tempos.Services;
 
@@ -15,14 +16,14 @@ internal sealed class TempoService(
     ICidadeService cidadeService,
     ILogger<TempoService> logger,
     IMapper mapper,
-    IEventDispatcher eventDispatcher
+    IDomainEventDispatcher eventDispatcher
 ) : ITempoService
 {
     readonly ITempoRepository _tempoRepository = tempoRepository;
     readonly ICidadeService _cidadeService = cidadeService;
     readonly ILogger<TempoService> _logger = logger;
     readonly IMapper _mapper = mapper;
-    readonly IEventDispatcher _eventDispatcher = eventDispatcher;
+    readonly IDomainEventDispatcher _eventDispatcher = eventDispatcher;
 
     public async Task<Result<TempoDto?>> BuscarPorCidade(string cidade)
     {

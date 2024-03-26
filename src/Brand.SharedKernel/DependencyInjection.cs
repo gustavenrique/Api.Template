@@ -1,9 +1,9 @@
 ﻿using MediatR.NotificationPublishers;
 using Microsoft.Extensions.DependencyInjection;
-using SharedKernel.Abstractions.Events;
-using SharedKernel.Services;
+using Brand.SharedKernel.Abstractions.Events;
+using Brand.SharedKernel.Services;
 
-namespace SharedKernel;
+namespace Brand.SharedKernel;
 
 public static class DependencyInjection
 {
@@ -20,5 +20,5 @@ public static class DependencyInjection
                 config.NotificationPublisher = new TaskWhenAllPublisher();
                 config.NotificationPublisherType = typeof(TaskWhenAllPublisher);
             })
-            .AddSingleton<IEventDispatcher, EventDispatcher>();
+            .AddSingleton<IDomainEventDispatcher, DomainEventDispatcher>();
 }

@@ -1,6 +1,4 @@
-﻿using SharedKernel.Abstractions.ResultType;
-
-namespace SharedKernel.ResultType;
+﻿namespace Brand.SharedKernel.Types.Output;
 
 public record Result<TValue> : Result
 {

@@ -1,4 +1,5 @@
 ﻿using Asp.Versioning;
+using Brand.SharedKernel.Types.Output;
 using Brand.Template.Api.Filter;
 using Brand.Template.Api.Filter.ResponseMapping;
 using Mapster;
@@ -6,7 +7,6 @@ using MapsterMapper;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Presentation.Middleware;
-using SharedKernel.ResultType;
 
 namespace Brand.Template.Api;
 

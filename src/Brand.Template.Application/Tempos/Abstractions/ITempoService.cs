@@ -1,5 +1,6 @@
-﻿using Brand.Template.Domain.Tempos.Dtos;
-using SharedKernel.ResultType;
+﻿using Brand.SharedKernel.Types.Output;
+using Brand.Template.Application.Tempos.Dtos;
+using Brand.Template.Domain.Tempos.Dtos;
 
 namespace Brand.Template.Application.Tempos.Abstractions;
 

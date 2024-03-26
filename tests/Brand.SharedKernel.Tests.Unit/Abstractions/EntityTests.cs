@@ -1,11 +1,11 @@
-﻿using FluentAssertions;
-using SharedKernel.Abstractions;
-using SharedKernel.Abstractions.Events;
-using SharedKernel.UnitTests.Abstractions.Utilities;
-using static SharedKernel.UnitTests.Abstractions.Utilities.Fakes.Entity;
-using static SharedKernel.UnitTests.Abstractions.Utilities.Fakes.ValueObject;
+﻿using Brand.SharedKernel.Abstractions;
+using Brand.SharedKernel.Abstractions.Events;
+using Brand.SharedKernel.UnitTests.Abstractions.Utilities;
+using FluentAssertions;
+using static Brand.SharedKernel.UnitTests.Abstractions.Utilities.Fakes.Entity;
+using static Brand.SharedKernel.UnitTests.Abstractions.Utilities.Fakes.ValueObject;
 
-namespace SharedKernel.UnitTests.Abstractions;
+namespace Brand.SharedKernel.UnitTests.Abstractions;
 
 public sealed class EntityTests
 {
@@ -46,7 +46,7 @@ public sealed class EntityTests
         usuario.AlterarEmail(outroNovoEmail);
 
         // Assert
-        IReadOnlyCollection<IEvent> events = usuario.PopEvents();
+        IReadOnlyCollection<IDomainEvent> events = usuario.PopEvents();
 
         events.Should().HaveCount(2);
         usuario.PopEvents().Should().BeEmpty();

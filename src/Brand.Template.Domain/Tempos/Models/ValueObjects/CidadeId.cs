@@ -1,4 +1,4 @@
-﻿using SharedKernel.Abstractions;
+﻿using Brand.SharedKernel.Abstractions;
 
 namespace Brand.Template.Domain.Tempos.Models.ValueObjects;
 

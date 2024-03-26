@@ -1,17 +1,17 @@
-﻿namespace SharedKernel.Abstractions.Events;
+﻿namespace Brand.SharedKernel.Abstractions.Events;
 
 /// <summary>
 /// Abstração para disparo de domain events em memória
 /// </summary>
-public interface IEventDispatcher
+public interface IDomainEventDispatcher
 {
     /// <summary>
     /// Dispara o evento recebido para o(s) seu(s) handler(s)
     /// </summary>
-    void Dispatch(IEvent @event);
+    void Dispatch(IDomainEvent @event);
 
     /// <summary>
     /// Dispara os events recebidos para o(s) seu(s) handler(s)
     /// </summary>
-    void Dispatch(IReadOnlyCollection<IEvent> events);
+    void Dispatch(IReadOnlyCollection<IDomainEvent> events);
 }

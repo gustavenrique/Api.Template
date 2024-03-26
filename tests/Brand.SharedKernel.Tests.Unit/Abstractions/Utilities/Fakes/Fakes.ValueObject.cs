@@ -1,11 +1,9 @@
 ﻿using System.Text.RegularExpressions;
+using Brand.SharedKernel.Abstractions;
+using Brand.SharedKernel.Types.Output;
+using VO = Brand.SharedKernel.Abstractions.ValueObject;
 
-using SharedKernel.Abstractions;
-using SharedKernel.ResultType;
-
-using VO = SharedKernel.Abstractions.ValueObject;
-
-namespace SharedKernel.UnitTests.Abstractions.Utilities;
+namespace Brand.SharedKernel.UnitTests.Abstractions.Utilities;
 internal static partial class Fakes
 {
     /// <summary>

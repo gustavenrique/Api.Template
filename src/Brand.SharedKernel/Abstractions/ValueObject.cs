@@ -1,4 +1,4 @@
-﻿namespace SharedKernel.Abstractions;
+﻿namespace Brand.SharedKernel.Abstractions;
 
 // referência: https://github.com/vkhorikov/CSharpFunctionalExtensions/blob/master/CSharpFunctionalExtensions/ValueObject/ValueObject.cs
 

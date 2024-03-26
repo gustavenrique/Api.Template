@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace SharedKernel.UnitTests.Abstractions.Utilities;
+namespace Brand.SharedKernel.UnitTests.Abstractions.Utilities;
 
 internal static partial class Utils
 {

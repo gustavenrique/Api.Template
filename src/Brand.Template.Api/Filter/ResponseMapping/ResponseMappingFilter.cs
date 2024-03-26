@@ -1,8 +1,7 @@
-﻿using MapsterMapper;
+﻿using Brand.SharedKernel.Types.Output;
+using MapsterMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using SharedKernel.Abstractions.ResultType;
-using SharedKernel.ResultType;
 
 namespace Brand.Template.Api.Filter.ResponseMapping;
 

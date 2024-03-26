@@ -1,6 +1,6 @@
-﻿using SharedKernel.Abstractions.Events;
+﻿using Brand.SharedKernel.Abstractions.Events;
 
-namespace SharedKernel.Abstractions;
+namespace Brand.SharedKernel.Abstractions;
 
 /*
     Referências:
@@ -16,7 +16,7 @@ namespace SharedKernel.Abstractions;
 public abstract class Entity<TId>(TId id) : IEquatable<Entity<TId>>
     where TId : notnull
 {
-    private Queue<IEvent> _events = [];
+    private Queue<IDomainEvent> _events = [];
 
     public TId Id { get; init; } = id;
 
@@ -24,14 +24,14 @@ public abstract class Entity<TId>(TId id) : IEquatable<Entity<TId>>
     /// Registra o acontecimento de um domain event
     /// </summary>
     /// <param name="domainEvent"></param>
-    protected void Raise(IEvent domainEvent) =>
+    protected void Raise(IDomainEvent domainEvent) =>
         _events.Enqueue(domainEvent);
 
     /// <summary>
     /// Retorna e limpa os registros de events do domain object
     /// </summary>
     /// <returns></returns>
-    public IReadOnlyCollection<IEvent> PopEvents()
+    public IReadOnlyCollection<IDomainEvent> PopEvents()
     {
         var events = _events;
         _events = [];

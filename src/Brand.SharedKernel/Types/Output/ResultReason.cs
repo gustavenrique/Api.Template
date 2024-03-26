@@ -1,4 +1,4 @@
-﻿namespace SharedKernel.Abstractions.ResultType;
+﻿namespace Brand.SharedKernel.Types.Output;
 
 public enum ResultReason
 {
