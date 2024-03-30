@@ -11,6 +11,31 @@ dotnet run --project RestApi.Template/src/RestApi.Template.Api/RestApi.Template.
 # Abrir http://localhost:5150/docs
 ```
 
+## Como renomear os diretórios, arquivos, namespaces e usings
+
+No diretório root do repositório clonado localmente, use um bash shell para executar o seguinte:
+
+```bash
+# Renomeando diretórios
+find $PWD -depth \
+	-type d \
+	-name '*RestApi*' \
+	-execdir bash -c 'mv "$1" "${1//RestApi//NOME_EMPRESA}"' _ {} \;
+
+# Renomeando .sln e .csproj
+find $PWD \
+	-type f \
+	-name 'RestApi*' \
+	-exec bash -c 'mv "$1" "${1//RestApi//NOME_EMPRESA}"' _ {} \;
+
+# Atualizando usings e namespaces
+find $PWD \
+	-type f -exec \
+    bash -c 'sed -i "s/RestApi/NOME_EMPRESA/g" "$1"' _ {} \;
+```
+
+Após a execução dos comandos, todos os `RestApi`s serão substituídos por seja lá qual for o nome determinado, tal como feito [aqui](https://github.com/plurish/api-template).
+
 # Libraries
 Estas são as principais libraries externas usadas para lidar com problemas genéricos:
 
