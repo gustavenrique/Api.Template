@@ -1,11 +1,12 @@
-# Brand-Api-Template
+# Rest.Api.Template
 Esta é uma template, que pode ser usada como base para REST APIs potencialmente complexas e monstruosas.
 
-Como testar:
-```bash
-git clone https://github.com/gustavenrique/Rest.Api.Template.git
+## Como testar
 
-dotnet run --project Rest.Api.Template/src/Brand.Template.Api/Brand.Template.Api.csproj
+```bash
+git clone https://github.com/gustavenrique/RestApi.Template.git
+
+dotnet run --project RestApi.Template/src/RestApi.Template.Api/RestApi.Template.Api.csproj
 
 # Abrir http://localhost:5150/docs
 ```
@@ -44,7 +45,7 @@ Vale mencionar que o Client, representando um Service Principal, por exemplo, pr
 # Health check
 O health check deve verificar a disponibilidade de todos os serviços externos usados pela API,
 desde bancos e APIs, até serviços de service bus. Portanto, sempre que fizermos uma adição/exclusão de serviços externos consumidos,
-também deve ser atualizada a configuração de health check, localizada em `src/Brand.Template.Api/DependencyInjection.cs`, no método `AddHealthChecking`.
+também deve ser atualizada a configuração de health check, localizada em `src/RestApi.Template.Api/DependencyInjection.cs`, no método `AddHealthChecking`.
 
 O endpoint que expõe os dados de health check é o `/_health`. Outrossim, vale ressaltar que o mesmo pode ser consumido através da UI
 encontrada em `/dashboard` (apenas existente fora do stage de Production).
@@ -88,8 +89,8 @@ Expõe a aplicação para agentes externos. Nesse caso, através de endpoints HT
 
 ```
 📂---src
-|   📂---Brand.Xpto.Api
-|   |   |   Brand.Xpto.Api.csproj
+|   📂---RestApi.Template.Api
+|   |   |   RestApi.Template.Api.csproj
 |   |   |   DependencyInjection.cs
 |   |   |   Dockerfile
 |   |   |   Program.cs
@@ -103,8 +104,8 @@ Expõe a aplicação para agentes externos. Nesse caso, através de endpoints HT
 A camada de aplicação deve orquestrar os domain models e, eventualmente, fazer uso dos domain services. Desse modo, ela é responsável 
 majoritariamente por assuntos de aplicação, como comunicação com agentes externos através de abstrações, mas também pode acabar contendo uma ou outra lógica de negócio.
 ```
-|   📂---Brand.Xpto.Application
-|   |   |   Brand.Xpto.Application.csproj
+|   📂---RestApi.Template.Application
+|   |   |   RestApi.Template.Application.csproj
 |   |   |   DependencyInjection.cs
 |   |   |   Settings.cs
 |   |   📂---Common
@@ -121,8 +122,8 @@ majoritariamente por assuntos de aplicação, como comunicação com agentes ext
 ## Domain
 Responsável por concentrar a maioria das lógicas de negócio, dentro das domain models e domain services
 ```
-|   📂---Brand.Xpto.Domain
-|   |   |   Brand.Xpto.Domain.csproj
+|   📂---RestApi.Template.Domain
+|   |   |   RestApi.Template.Domain.csproj
 |   |   📂---Common
 |   |   📂---Foo
 |   |       📂---Abstractions
@@ -138,9 +139,9 @@ Responsável por concentrar a maioria das lógicas de negócio, dentro das domai
 ## Infrastructure/Persistence/DataAccess
 Implementa o consumo de serviços externos
 ```
-|   📂---Brand.Xpto.Infra
+|   📂---RestApi.Template.Infra
 |   |   |   DependencyInjection.cs
-|   |   |   Brand.Xpto.Infra.csproj
+|   |   |   RestApi.Template.Infra.csproj
 |   |   |   Settings.cs
 |   |   📂---Common     
 |   |   📂---Foo
@@ -152,47 +153,25 @@ Implementa o consumo de serviços externos
 |   |               BazRepository.cs
 ```
 
-## Shared Kernel
-Concentra **recursos internos, relacionados ao Domain**, mas compartilhados entre diferentes 'bounded contexts'.
-Na prática, terá domain models e abstrações de negócios que podem ser compartilhadas entre as aplicações do Brand, os quais 
-poderiam ser migrados para uma lib interna eventualmente.
-```
-|   📂---Brand.Common
-|       |   DependencyInjection.cs
-|       |   Brand.Common.csproj
-|       📂---Abstractions
-|       |   |   AggregateRoot.cs
-|       |   |   Entity.cs
-|       |   |   ValueObject.cs
-|       |   📂---Events
-|       |   |       IDomainEvent.cs
-|       |   |       IDomainEventDispatcher.cs
-|       |   |       IDomainEventHandler.cs
-|       |   📂---ResultType
-|       |           Result.cs
-|       |           ResultReason.cs
-|       |           ResultT.cs
-|       📂---Services
-|               DomainEventDispatcher.cs
-```
+## RestApi.Common
+Representa recursos que podem ser reutilizados entre diferentes projetos. Inclusive, idealmente, esse projeto deveria ser extraído e transformado num NuGet package privado.
+
+Caso seja necessário criar uma layer com recursos compartilhados entre a própria REST API, o nome poderia ser `RestApi.Template.Common`, para seguir a convenção de assembly naming.
 
 ## Tests
 - Os testes devem ser separados em uma pasta além da `src\`
-- No caso de **testes unitários**, deve haver um projeto de teste para cada camada testada
-- Cada projeto de teste deve preferencialmente seguir uma estrutura de pastas parecida com a da aplicação
+- Cada projeto de teste deve preferencialmente seguir uma estrutura de pastas parecida com a de sua layer correspondente
+  
 ```
 📂---tests
-    📂---Brand.Xpto.Api.Tests.Integration
-    📂---Brand.Xpto.Application.Tests.Subcutaneous
-    📂---Brand.Xpto.Application.Tests.Unit 
-    📂---Brand.Xpto.Domain.Tests.Unit
-    📂---Brand.Common.Tests.Unit
+    📂---RestApi.Template.Api.Tests.Integration
+    📂---RestApi.Template.Application.Tests.Subcutaneous
+    📂---RestApi.Template.Application.Tests.Unit 
+    📂---RestApi.Template.Domain.Tests.Unit
+    📂---RestApi.Common.Tests.Unit
         |   GlobalUsings.cs
-        |   Brand.Common.Tests.Unit.csproj
+        |   RestApi.Common.Tests.Unit.csproj
         📂---Abstractions
         |   |   EntityTests.cs
         |   |   ValueObjectTests.cs
-        |   📂---ResultType
-        |   |       ResultTests.cs
-        |   |       ResultTTests.cs
 ``` 
