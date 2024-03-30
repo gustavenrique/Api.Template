@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using Serilog.Context;
 
-namespace RestApi.Template.Api.Filter;
+namespace RestApi.Template.Api.Filters;
 
 internal sealed class LoggingFilter(ILogger<LoggingFilter> logger) : IAsyncActionFilter
 {

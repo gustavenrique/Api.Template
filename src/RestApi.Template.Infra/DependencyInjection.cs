@@ -1,7 +1,4 @@
-﻿using RestApi.Template.Domain.Tempos.Abstractions;
-using RestApi.Template.Infra.Tempos;
-using RestApi.Template.Infra.Tempos.Repositories;
-using Mapster;
+﻿using Mapster;
 using MapsterMapper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +8,10 @@ using Polly;
 using Polly.Contrib.WaitAndRetry;
 using Prometheus;
 using Refit;
+using RestApi.Common.Configuration;
+using RestApi.Template.Domain.Tempos.Abstractions;
+using RestApi.Template.Infra.Tempos;
+using RestApi.Template.Infra.Tempos.Repositories;
 
 namespace RestApi.Template.Infra;
 
@@ -79,7 +80,7 @@ public static class DependencyInjection
         Settings.Api apis
     )
     {
-        Options.Api openWeather = apis.OpenWeather;
+        ApiOptions openWeather = apis.OpenWeather;
 
         services
             .AddRefitClient<IOpenWeatherApiClient>()

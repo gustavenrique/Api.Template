@@ -1,4 +1,4 @@
-﻿using RestApi.Template.Api.Filter.ResponseMapping;
+﻿using RestApi.Template.Api.Filters.ResponseMapping;
 
 namespace Presentation.Middleware;
 

@@ -1,12 +1,13 @@
 ﻿using Asp.Versioning;
-using RestApi.Template.Api.Filter;
-using RestApi.Template.Api.Filter.ResponseMapping;
 using Mapster;
 using MapsterMapper;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Presentation.Middleware;
+using RestApi.Common.Configuration;
 using RestApi.Common.Types.Output;
+using RestApi.Template.Api.Filters;
+using RestApi.Template.Api.Filters.ResponseMapping;
 
 namespace RestApi.Template.Api;
 
@@ -18,7 +19,7 @@ internal static class DependencyInjection
         bool isProduction
     )
     {
-        services.AddSettings(configuration, out Settings.Auth authSettings);
+        services.AddSettings(configuration, out AuthOptions authSettings);
 
         if (!isProduction)
         {
@@ -37,15 +38,15 @@ internal static class DependencyInjection
     private static IServiceCollection AddSettings(
         this IServiceCollection services,
         IConfiguration configuration,
-        out Settings.Auth authSettings
+        out AuthOptions authSettings
     )
     {
         services
-            .Configure<Settings.Auth>(configuration.GetSection(nameof(Settings.Auth)));
+            .Configure<AuthOptions>(configuration.GetSection(nameof(AuthOptions)));
 
         authSettings = services
             .BuildServiceProvider()
-            .GetRequiredService<IOptions<Settings.Auth>>()
+            .GetRequiredService<IOptions<AuthOptions>>()
             .Value;
 
         return services;
@@ -75,7 +76,7 @@ internal static class DependencyInjection
 
     private static IServiceCollection AddHealthCheckUI(
         this IServiceCollection services,
-        Settings.Auth authSettings
+        AuthOptions authSettings
     )
     {
         services

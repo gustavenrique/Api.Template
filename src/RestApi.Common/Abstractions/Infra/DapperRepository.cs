@@ -9,9 +9,9 @@ using static Dapper.SqlMapper;
 
 namespace RestApi.Common.Abstractions.Infra;
 
-public abstract class DapperRepository(SqlConfig config)
+public abstract class DapperRepository(SqlOptions config)
 {
-    readonly SqlConfig _config = config;
+    readonly SqlOptions _config = config;
 
     readonly AsyncRetryPolicy _retryPolicy = Policy
         .Handle<SqlException>(SqlServerTransientExceptionDetector.ShouldRetryOn)

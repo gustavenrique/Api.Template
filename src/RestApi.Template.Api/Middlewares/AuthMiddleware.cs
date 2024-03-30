@@ -1,5 +1,5 @@
 ﻿using RestApi.Template.Api;
-using RestApi.Template.Api.Filter.ResponseMapping;
+using RestApi.Template.Api.Filters.ResponseMapping;
 using Microsoft.Extensions.Options;
 
 namespace Presentation.Middleware;

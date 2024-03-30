@@ -35,7 +35,7 @@ public static class DependencyInjection
     {
         var keyVault = config
             .GetRequiredSection("KeyVault")
-            .Get<KeyVaultConfig>()!;
+            .Get<KeyVaultOptions>()!;
 
         bool rodandoLocal = keyVault is not { ClientId: null, TenantId: null, ClientSecret: null };
 

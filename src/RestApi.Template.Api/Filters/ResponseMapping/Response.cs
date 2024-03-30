@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace RestApi.Template.Api.Filter.ResponseMapping;
+namespace RestApi.Template.Api.Filters.ResponseMapping;
 
 internal sealed record Response<T>
 {

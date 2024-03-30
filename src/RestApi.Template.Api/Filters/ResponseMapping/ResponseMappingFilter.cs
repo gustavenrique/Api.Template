@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using RestApi.Common.Types.Output;
 
-namespace RestApi.Template.Api.Filter.ResponseMapping;
+namespace RestApi.Template.Api.Filters.ResponseMapping;
 
 /// <summary>
-/// Filter responsável por converter um Result para um Response
+/// Filters responsável por converter um Result para um Response
 /// </summary>
 internal sealed class ResponseMappingFilter(IMapper mapper) : IActionFilter
 {

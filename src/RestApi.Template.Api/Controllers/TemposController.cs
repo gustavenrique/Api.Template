@@ -1,6 +1,6 @@
 using Asp.Versioning;
 using RestApi.Common.Types.Output;
-using RestApi.Template.Api.Filter.ResponseMapping;
+using RestApi.Template.Api.Filters.ResponseMapping;
 using RestApi.Template.Application.Tempos.Abstractions;
 using RestApi.Template.Application.Tempos.Dtos;
 using RestApi.Template.Domain.Tempos.Dtos;

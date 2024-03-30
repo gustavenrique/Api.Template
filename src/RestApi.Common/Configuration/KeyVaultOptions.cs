@@ -1,6 +1,6 @@
 ﻿namespace RestApi.Common.Configuration;
 
-public sealed class KeyVaultConfig
+public sealed class KeyVaultOptions
 {
     /// <summary>
     /// Com a aplicação rodando no Azure, apenas a URL do Key Vault é requerida,

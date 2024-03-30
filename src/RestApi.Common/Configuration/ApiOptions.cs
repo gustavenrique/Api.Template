@@ -3,7 +3,7 @@
 /// <summary>
 /// Seção individual de uma API no appsettings
 /// </summary>
-public sealed class ApiConfig
+public sealed class ApiOptions
 {
     /// <summary>
     /// Base URL
@@ -20,5 +20,5 @@ public sealed class ApiConfig
     /// </summary>
     public required int Timeout { get; init; }
 
-    public required ResilienceConfig Resilience { get; init; }
+    public required ResilienceOptions Resilience { get; init; }
 }
