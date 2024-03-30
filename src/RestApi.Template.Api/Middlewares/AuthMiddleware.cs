@@ -1,14 +1,14 @@
-﻿using RestApi.Template.Api;
+﻿using Microsoft.Extensions.Options;
+using RestApi.Common.Configuration;
 using RestApi.Template.Api.Filters.ResponseMapping;
-using Microsoft.Extensions.Options;
 
 namespace Presentation.Middleware;
 
 internal sealed class AuthMiddleware(
-    IOptionsMonitor<Settings.Auth> securitySettings
+    IOptionsMonitor<AuthOptions> securitySettings
 ) : IMiddleware
 {
-    readonly Settings.Auth _auth = securitySettings.CurrentValue;
+    readonly AuthOptions _auth = securitySettings.CurrentValue;
 
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
