@@ -6,7 +6,7 @@ using MapsterMapper;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Presentation.Middleware;
-using SharedKernel.ResultType;
+using Brand.Common.Types.Output;
 
 namespace Brand.Template.Api;
 

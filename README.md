@@ -1,11 +1,11 @@
 # Brand-Api-Template
-Esta é uma template, que pode ser usada como base para APIs potencialmente complexas e monstruosas.
+Esta é uma template, que pode ser usada como base para REST APIs potencialmente complexas e monstruosas.
 
 Como testar:
 ```bash
-git clone https://github.com/gustavenrique/Template.Api.git
+git clone https://github.com/gustavenrique/Rest.Api.Template.git
 
-dotnet run --project Template.Api/src/Brand.Template.Api/Brand.Template.Api.csproj
+dotnet run --project Rest.Api.Template/src/Brand.Template.Api/Brand.Template.Api.csproj
 
 # Abrir http://localhost:5150/docs
 ```
@@ -157,9 +157,9 @@ Concentra **recursos internos, relacionados ao Domain**, mas compartilhados entr
 Na prática, terá domain models e abstrações de negócios que podem ser compartilhadas entre as aplicações do Brand, os quais 
 poderiam ser migrados para uma lib interna eventualmente.
 ```
-|   📂---Brand.SharedKernel
+|   📂---Brand.Common
 |       |   DependencyInjection.cs
-|       |   Brand.SharedKernel.csproj
+|       |   Brand.Common.csproj
 |       📂---Abstractions
 |       |   |   AggregateRoot.cs
 |       |   |   Entity.cs
@@ -167,7 +167,7 @@ poderiam ser migrados para uma lib interna eventualmente.
 |       |   📂---Events
 |       |   |       IDomainEvent.cs
 |       |   |       IDomainEventDispatcher.cs
-|       |   |       IDomainEventBrand.cs
+|       |   |       IDomainEventHandler.cs
 |       |   📂---ResultType
 |       |           Result.cs
 |       |           ResultReason.cs
@@ -186,9 +186,9 @@ poderiam ser migrados para uma lib interna eventualmente.
     📂---Brand.Xpto.Application.Tests.Subcutaneous
     📂---Brand.Xpto.Application.Tests.Unit 
     📂---Brand.Xpto.Domain.Tests.Unit
-    📂---Brand.SharedKernel.Tests.Unit
+    📂---Brand.Common.Tests.Unit
         |   GlobalUsings.cs
-        |   Brand.SharedKernel.Tests.Unit.csproj
+        |   Brand.Common.Tests.Unit.csproj
         📂---Abstractions
         |   |   EntityTests.cs
         |   |   ValueObjectTests.cs

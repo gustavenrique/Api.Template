@@ -5,7 +5,7 @@ using Brand.Template.Domain.Tempos.Dtos;
 using Brand.Template.Domain.Tempos.Models;
 using MapsterMapper;
 using Microsoft.Extensions.Logging;
-using SharedKernel.ResultType;
+using Brand.Common.Types.Output;
 
 namespace Brand.Template.Application.Tempos.Services;
 

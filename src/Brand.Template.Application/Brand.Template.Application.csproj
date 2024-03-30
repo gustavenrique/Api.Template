@@ -8,7 +8,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Brand.SharedKernel\Brand.SharedKernel.csproj" />
+    <ProjectReference Include="..\Brand.Common\Brand.Common.csproj" />
     <ProjectReference Include="..\Brand.Template.Domain\Brand.Template.Domain.csproj" />
   </ItemGroup>
 

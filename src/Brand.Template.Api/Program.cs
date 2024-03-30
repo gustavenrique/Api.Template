@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Presentation.Middleware;
 using Prometheus;
 using Serilog;
-using SharedKernel;
+using Brand.Common;
 
 #pragma warning disable S1199
 
@@ -20,7 +20,7 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
         )
         .AddInfrastructure(builder.Configuration)
         .AddApplication()
-        .AddSharedKernel();
+        .AddCommon(builder.Configuration);
 
     builder.Host.UseSerilog((context, config) =>
         config.ReadFrom.Configuration(context.Configuration)

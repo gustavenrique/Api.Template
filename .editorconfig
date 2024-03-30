@@ -499,5 +499,12 @@ dotnet_diagnostic.CA1008.severity = none
 # CA1028: Enum storage should be Int32
 dotnet_diagnostic.CA1028.severity = none
 
+# S927: Parameter name should match interface declaration
+dotnet_diagnostic.S927.severity = suggestion
+dotnet_diagnostic.CA1725.severity = suggestion
+
+# CA2225: Operator overloads have named alternates
+dotnet_diagnostic.CA2225.severity = suggestion
+
 [**/Migrations/*]
 generated_code = true

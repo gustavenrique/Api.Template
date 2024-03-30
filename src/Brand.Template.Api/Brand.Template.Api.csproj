@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Brand.SharedKernel\Brand.SharedKernel.csproj" />
+    <ProjectReference Include="..\Brand.Common\Brand.Common.csproj" />
     <ProjectReference Include="..\Brand.Template.Application\Brand.Template.Application.csproj" />
     <ProjectReference Include="..\Brand.Template.Domain\Brand.Template.Domain.csproj" />
     <ProjectReference Include="..\Brand.Template.Infra\Brand.Template.Infra.csproj" />

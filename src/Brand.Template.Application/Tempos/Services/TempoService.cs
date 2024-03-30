@@ -1,12 +1,13 @@
 ﻿using Brand.Template.Application.Tempos.Abstractions;
+using Brand.Template.Application.Tempos.Dtos;
 using Brand.Template.Application.Tempos.Errors;
 using Brand.Template.Domain.Tempos.Abstractions;
 using Brand.Template.Domain.Tempos.Dtos;
 using Brand.Template.Domain.Tempos.Models;
 using MapsterMapper;
 using Microsoft.Extensions.Logging;
-using SharedKernel.Abstractions.Events;
-using SharedKernel.ResultType;
+using Brand.Common.Abstractions.Domain.Events;
+using Brand.Common.Types.Output;
 
 namespace Brand.Template.Application.Tempos.Services;
 
@@ -15,14 +16,14 @@ internal sealed class TempoService(
     ICidadeService cidadeService,
     ILogger<TempoService> logger,
     IMapper mapper,
-    IEventDispatcher eventDispatcher
+    IDomainEventDispatcher eventDispatcher
 ) : ITempoService
 {
     readonly ITempoRepository _tempoRepository = tempoRepository;
     readonly ICidadeService _cidadeService = cidadeService;
     readonly ILogger<TempoService> _logger = logger;
     readonly IMapper _mapper = mapper;
-    readonly IEventDispatcher _eventDispatcher = eventDispatcher;
+    readonly IDomainEventDispatcher _eventDispatcher = eventDispatcher;
 
     public async Task<Result<TempoDto?>> BuscarPorCidade(string cidade)
     {
@@ -53,14 +54,21 @@ internal sealed class TempoService(
 
     public async Task<Result> DiminuirTemperatura(DiminuirTemperaturaDto input)
     {
-        Result<TempoDto?> tempoResult = await BuscarPorCidade(input.Cidade);
+        Result<TempoDto?> tempoDtoResult = await BuscarPorCidade(input.Cidade);
 
-        if (!tempoResult.HasValue)
+        if (!tempoDtoResult.HasValue)
+        {
+            return new(tempoDtoResult);
+        }
+
+        Result<Tempo?> tempoResult = tempoDtoResult.Value!.ParaDomain();
+
+        if (tempoResult.IsFailure)
         {
             return new(tempoResult);
         }
 
-        Tempo tempo = tempoResult.Value!.ParaDomain();
+        Tempo tempo = tempoResult.Value!;
 
         Result result = tempo.DiminuirTemperatura(input.CelsiusDiminuidos);
 

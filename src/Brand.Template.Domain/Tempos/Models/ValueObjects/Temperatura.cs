@@ -1,5 +1,5 @@
-﻿using SharedKernel.Abstractions;
-using SharedKernel.ResultType;
+﻿using Brand.Common.Abstractions.Domain;
+using Brand.Common.Types.Output;
 
 namespace Brand.Template.Domain.Tempos.Models.ValueObjects;
 
@@ -16,7 +16,9 @@ public sealed class Temperatura : ValueObject
     public static Result<Temperatura?> Criar(decimal celsius)
     {
         if (celsius < ZeroAbsoluto)
+        {
             return Result<Temperatura?>.InvalidInput(["Não é possível existir temperatura menor que o zero absoluto"]);
+        }
 
         return Result<Temperatura?>.Created(new Temperatura(celsius));
     }

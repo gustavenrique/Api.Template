@@ -1,5 +1,5 @@
 ﻿using Brand.Template.Domain.Tempos.Dtos;
-using SharedKernel.ResultType;
+using Brand.Common.Types.Output;
 
 namespace Brand.Template.Application.Tempos.Errors;
 

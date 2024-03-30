@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\Brand.SharedKernel\Brand.SharedKernel.csproj" />
+    <ProjectReference Include="..\Brand.Common\Brand.Common.csproj" />
   </ItemGroup>
 
 </Project>

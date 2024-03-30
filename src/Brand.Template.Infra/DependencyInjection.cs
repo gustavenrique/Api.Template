@@ -1,7 +1,4 @@
-﻿using Azure.Extensions.AspNetCore.Configuration.Secrets;
-using Azure.Identity;
-using Azure.Security.KeyVault.Secrets;
-using Brand.Template.Domain.Tempos.Abstractions;
+﻿using Brand.Template.Domain.Tempos.Abstractions;
 using Brand.Template.Infra.Tempos;
 using Brand.Template.Infra.Tempos.Repositories;
 using Mapster;
@@ -41,33 +38,6 @@ public static class DependencyInjection
         out Settings.Database db
     )
     {
-        var keyVault = config
-            .GetRequiredSection(nameof(Settings.KeyVault))
-            .Get<Settings.KeyVault>()!;
-
-        if (string.IsNullOrEmpty(keyVault.Url))
-        {
-            bool rodandoLocal = keyVault is not { ClientId: null, TenantId: null, ClientSecret: null };
-
-            if (rodandoLocal)
-                config.AddAzureKeyVault(
-                    new SecretClient(
-                        new Uri(keyVault.Url),
-                        new ClientSecretCredential(
-                            keyVault.TenantId,
-                            keyVault.ClientId,
-                            keyVault.ClientSecret
-                        )
-                    ),
-                    new AzureKeyVaultConfigurationOptions()
-                );
-            else // se estiver rodando em cloud, usa managed identity
-                config.AddAzureKeyVault(
-                    new Uri(keyVault.Url),
-                    new DefaultAzureCredential()
-                );
-        }
-
         services
             .Configure<Settings.Api>(config.GetSection(nameof(Settings.Api)))
             .Configure<Settings.Database>(config.GetSection(nameof(Settings.Database)));

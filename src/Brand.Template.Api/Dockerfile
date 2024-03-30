@@ -8,7 +8,7 @@ COPY ["./src/Brand.Template.Api/Brand.Template.Api.csproj", "./Brand.Template.Ap
 COPY ["./src/Brand.Template.Application/Brand.Template.Application.csproj", "./Brand.Template.Application/"]
 COPY ["./src/Brand.Template.Domain/Brand.Template.Domain.csproj", "./Brand.Template.Domain/"]
 COPY ["./src/Brand.Template.Infra/Brand.Template.Infra.csproj", "./Brand.Template.Infra/"]
-COPY ["./src/Brand.SharedKernel/Brand.SharedKernel.csproj" "./Brand.SharedKernel/"]
+COPY ["./src/Brand.Common/Brand.Common.csproj" "./Brand.Common/"]
 COPY ./Directory.Build.props ./
 COPY ./.editorconfig ./
 
