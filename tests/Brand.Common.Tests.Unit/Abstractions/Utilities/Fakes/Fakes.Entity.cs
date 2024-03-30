@@ -1,9 +1,10 @@
-﻿using Brand.Common.Abstractions.Domain;
-using Brand.Common.Abstractions.Domain.Events;
-using Brand.Common.Types.Output;
-using static Brand.Common.Tests.Unit.Abstractions.Utilities.Fakes.ValueObject;
+﻿using SharedKernel.Abstractions;
+using SharedKernel.Abstractions.Events;
+using SharedKernel.ResultType;
 
-namespace Brand.Common.Tests.Unit.Abstractions.Utilities;
+using static SharedKernel.UnitTests.Abstractions.Utilities.Fakes.ValueObject;
+
+namespace SharedKernel.UnitTests.Abstractions.Utilities;
 internal static partial class Fakes
 {
     /// <summary>

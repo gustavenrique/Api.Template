@@ -12,7 +12,7 @@ namespace Brand.Template.Infra.Common.Abstractions;
 
 internal abstract class DapperRepository(SqlOptions options)
 {
-    private SqlOptions _options => options;
+    readonly SqlOptions _options = options;
 
     private readonly AsyncRetryPolicy _retryPolicy = Policy
         .Handle<SqlException>(SqlServerTransientExceptionDetector.ShouldRetryOn)

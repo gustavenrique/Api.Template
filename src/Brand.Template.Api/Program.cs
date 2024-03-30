@@ -1,5 +1,4 @@
 using Brand.Template.Api;
-using Brand.Template.Api.Middlewares;
 using Brand.Template.Application;
 using Brand.Template.Infra;
 using HealthChecks.UI.Client;
@@ -14,13 +13,13 @@ using Brand.Common;
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 {
     builder.Services
+        .AddCommon(builder.Configuration)
         .AddPresentation(
             builder.Configuration,
             builder.Environment.IsProduction()
         )
         .AddInfrastructure(builder.Configuration)
-        .AddApplication()
-        .AddCommon(builder.Configuration);
+        .AddApplication();
 
     builder.Host.UseSerilog((context, config) =>
         config.ReadFrom.Configuration(context.Configuration)
@@ -45,11 +44,7 @@ WebApplication app = builder.Build();
     app
         .UseRouting()
         .UseStaticFiles()
-        .UseMiddleware<LoggingMiddleware>()
         .UseMiddleware<ExceptionHandlingMiddleware>()
-        .UseSerilogRequestLogging(o =>
-            o.MessageTemplate = "HTTP {RequestMethod} {RequestPath} retornou {StatusCode} em {Elapsed:0.0} ms"
-        )
         .UseMiddleware<AuthMiddleware>();
 
     app

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Brand.Common.Types.Output;
 
-namespace Brand.Template.Api.Filter;
+namespace Brand.Template.Api.Filter.ResponseMapping;
 
 /// <summary>
 /// Filter responsável por converter um Result para um Response

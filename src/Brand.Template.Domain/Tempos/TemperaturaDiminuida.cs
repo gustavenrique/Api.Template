@@ -1,5 +1,5 @@
 ﻿using System.Text.Json.Serialization;
-using Brand.Common.Abstractions.Domain.Events;
+using SharedKernel.Abstractions.Events;
 
 namespace Brand.Template.Domain.Tempos;
 

@@ -1,6 +1,6 @@
-﻿using static Brand.Common.Tests.Unit.Abstractions.Utilities.Fakes.ValueObject;
+﻿using static SharedKernel.UnitTests.Abstractions.Utilities.Fakes.ValueObject;
 
-namespace Brand.Common.Tests.Unit.Abstractions.Utilities;
+namespace SharedKernel.UnitTests.Abstractions.Utilities;
 
 internal static partial class Constants
 {

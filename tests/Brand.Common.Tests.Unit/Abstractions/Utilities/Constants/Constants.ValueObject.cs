@@ -1,4 +1,4 @@
-﻿namespace Brand.Common.Tests.Unit.Abstractions.Utilities;
+﻿namespace SharedKernel.UnitTests.Abstractions.Utilities;
 internal static partial class Constants
 {
     internal static class ValueObject

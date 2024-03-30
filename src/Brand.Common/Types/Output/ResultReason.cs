@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:src/Brand.Common/Types/Output/ResultReason.cs
 ﻿namespace Brand.Common.Types.Output;
+========
+﻿namespace Brand.SharedKernel.Types.Output;
+>>>>>>>> 643870f1f5e4d0c613aea31b98add7f1775e74a6:src/Brand.SharedKernel/Types/Output/ResultReason.cs
 
 public enum ResultReason
 {

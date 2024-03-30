@@ -29,7 +29,12 @@ public abstract class DomainEventHandler<TEvent>(ILogger<DomainEventHandler<TEve
             await _retryPolicy.ExecuteAsync(async () =>
             {
                 await Execute(@event, cancellationToken);
-            });
+            }).ConfigureAwait(false);
+
+            if (_logger.IsEnabled(LogLevel.Information))
+            {
+                _logger.LogInformation("Evento processado");
+            }
         }
         catch (Exception ex)
         {

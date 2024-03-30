@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Brand.Template.Api.Filter;
+namespace Brand.Template.Api.Filter.ResponseMapping;
 
 internal sealed record Response<T>
 {

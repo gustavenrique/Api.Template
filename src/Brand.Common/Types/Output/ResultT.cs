@@ -1,6 +1,12 @@
+<<<<<<<< HEAD:src/Brand.Common/Types/Output/ResultT.cs
 ﻿namespace Brand.Common.Types.Output;
 
 public sealed record Result<TValue> : Result
+========
+﻿namespace Brand.SharedKernel.Types.Output;
+
+public record Result<TValue> : Result
+>>>>>>>> 643870f1f5e4d0c613aea31b98add7f1775e74a6:src/Brand.SharedKernel/Types/Output/ResultT.cs
 {
     /// <summary>
     /// Valor do resultado da(s) operação(ões)

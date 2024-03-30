@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using Brand.SharedKernel.Types.Output;
+using FluentAssertions;
 using Brand.Common.Types.Output;
 
 namespace Brand.Common.Tests.Unit.Types.Output;

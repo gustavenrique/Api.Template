@@ -3,7 +3,7 @@ using Brand.Common.Abstractions.Domain;
 
 namespace Brand.Template.Domain.Tempos.Models;
 
-public sealed class Cidade(CidadeId Id, string Nome) : Entity<CidadeId>(Id)
+public sealed class Cidade(CidadeId id, string nome) : Entity<CidadeId>(id)
 {
-    public string Nome { get; private set; } = Nome;
+    public string Nome { get; private set; } = nome;
 }

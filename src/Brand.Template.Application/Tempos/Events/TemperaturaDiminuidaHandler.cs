@@ -13,7 +13,7 @@ internal sealed class TemperaturaDiminuidaHandler(
     protected override Task Execute(TemperaturaDiminuida @event, CancellationToken cancellationToken)
     {
         if (_logger.IsEnabled(LogLevel.Information))
-        {
+    {
             _logger.LogInformation("[Handle] Evento recebido: {@Evento}", @event);
         }
 
