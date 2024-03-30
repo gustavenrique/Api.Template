@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\RestApi.Common\RestApi.Common.csproj" />
+  </ItemGroup>
+
+</Project>

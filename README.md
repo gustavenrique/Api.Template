@@ -1,4 +1,4 @@
-# Rest.Api.Template
+# RestApi.Template
 Esta é uma template, que pode ser usada como base para REST APIs potencialmente complexas e monstruosas.
 
 ## Como testar
