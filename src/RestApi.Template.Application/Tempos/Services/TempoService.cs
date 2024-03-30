@@ -1,13 +1,13 @@
-﻿using RestApi.Template.Application.Tempos.Abstractions;
+﻿using MapsterMapper;
+using Microsoft.Extensions.Logging;
+using RestApi.Common.Abstractions.Domain.Events;
+using RestApi.Common.Types.Output;
+using RestApi.Template.Application.Tempos.Abstractions;
 using RestApi.Template.Application.Tempos.Dtos;
 using RestApi.Template.Application.Tempos.Errors;
 using RestApi.Template.Domain.Tempos.Abstractions;
 using RestApi.Template.Domain.Tempos.Dtos;
 using RestApi.Template.Domain.Tempos.Models;
-using MapsterMapper;
-using Microsoft.Extensions.Logging;
-using RestApi.Common.Abstractions.Domain.Events;
-using RestApi.Common.Types.Output;
 
 namespace RestApi.Template.Application.Tempos.Services;
 
@@ -27,7 +27,10 @@ internal sealed class TempoService(
 
     public async Task<Result<TempoDto?>> BuscarPorCidade(string cidade)
     {
-        if (string.IsNullOrEmpty(cidade)) return TempoErrors.CidadeInvalida;
+        if (string.IsNullOrEmpty(cidade))
+        {
+            return TempoErrors.CidadeInvalida;
+        }
 
         Result<CidadeDto?> cidadeResult = await _cidadeService.BuscarPorNome(cidade);
 
@@ -54,21 +57,14 @@ internal sealed class TempoService(
 
     public async Task<Result> DiminuirTemperatura(DiminuirTemperaturaDto input)
     {
-        Result<TempoDto?> tempoDtoResult = await BuscarPorCidade(input.Cidade);
+        Result<TempoDto?> tempoDto = await BuscarPorCidade(input.Cidade);
 
-        if (!tempoDtoResult.HasValue)
+        if (!tempoDto.HasValue)
         {
-            return new(tempoDtoResult);
+            return new(tempoDto);
         }
 
-        Result<Tempo?> tempoResult = tempoDtoResult.Value!.ParaDomain();
-
-        if (tempoResult.IsFailure)
-        {
-            return new(tempoResult);
-        }
-
-        Tempo tempo = tempoResult.Value!;
+        Tempo tempo = tempoDto.Value!.ParaDomain();
 
         Result result = tempo.DiminuirTemperatura(input.CelsiusDiminuidos);
 

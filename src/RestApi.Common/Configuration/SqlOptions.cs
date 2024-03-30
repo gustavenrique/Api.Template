@@ -3,7 +3,8 @@
 /// <summary>
 /// Seção individual de um banco SQL no appsettings
 /// </summary>
-public sealed record SqlOptions(
-    string ConnectionString,
-    ResilienceOptions Resilience
-);
+public sealed class SqlOptions
+{
+    public required string ConnectionString { get; init; }
+    public required ResilienceOptions Resilience { get; init; } = default!;
+}

@@ -6,15 +6,11 @@ internal sealed class ExceptionHandlingMiddleware(ILogger<ExceptionHandlingMiddl
 {
     readonly ILogger<ExceptionHandlingMiddleware> _logger = logger;
 
-    readonly record struct Error(
-        bool Ocurred,
-        string Message = "",
-        Exception? Exception = null
-    );
+    sealed record Error(string Message, Exception Exception);
 
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
-        Error error = new(Ocurred: false);
+        Error? error = null;
 
         try
         {
@@ -22,15 +18,15 @@ internal sealed class ExceptionHandlingMiddleware(ILogger<ExceptionHandlingMiddl
         }
         catch (OperationCanceledException ex)
         {
-            error = new Error(true, "Oops! O processo demorou demais para finalizar", ex);
+            error = new Error("Oops! O processo demorou demais para finalizar", ex);
         }
         catch (Exception ex)
         {
-            error = new Error(true, "Oops! Algum erro inesperado ocorreu", ex);
+            error = new Error("Oops! Algum erro inesperado ocorreu", ex);
         }
         finally
         {
-            if (error.Ocurred)
+            if (error is not null)
             {
                 _logger.LogError(error.Exception, "{Error}", error.Message);
 

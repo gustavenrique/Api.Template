@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 using RestApi.Common.Abstractions.Domain.Events;
 
-namespace RestApi.Template.Domain.Tempos;
+namespace RestApi.Template.Domain.Tempos.Event;
 
 public sealed record TemperaturaDiminuida(
     [property: JsonPropertyName("tempo_id")]

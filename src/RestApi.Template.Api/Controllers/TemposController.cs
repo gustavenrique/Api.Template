@@ -1,10 +1,10 @@
 using Asp.Versioning;
+using Microsoft.AspNetCore.Mvc;
 using RestApi.Common.Types.Output;
 using RestApi.Template.Api.Filters.ResponseMapping;
 using RestApi.Template.Application.Tempos.Abstractions;
 using RestApi.Template.Application.Tempos.Dtos;
 using RestApi.Template.Domain.Tempos.Dtos;
-using Microsoft.AspNetCore.Mvc;
 
 namespace RestApi.Template.Api.Controllers;
 

@@ -1,5 +1,6 @@
 ﻿using RestApi.Common.Abstractions.Domain;
 using RestApi.Common.Types.Output;
+using RestApi.Template.Domain.Tempos.Event;
 using RestApi.Template.Domain.Tempos.Models.ValueObjects;
 
 namespace RestApi.Template.Domain.Tempos.Models;

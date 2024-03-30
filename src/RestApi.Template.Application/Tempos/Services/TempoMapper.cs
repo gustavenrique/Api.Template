@@ -10,36 +10,23 @@ internal static class TempoMapper
     /// <summary>
     /// De DTO para Domain object
     /// </summary>
-    public static Result<Tempo?> ParaDomain(this TempoDto dto)
+    public static Tempo ParaDomain(this TempoDto dto)
     {
-        Result<Temperatura?> temperatura = Temperatura.Criar(dto.Temperatura.Celsius);
-
-        if (temperatura.IsFailure)
-        {
-            return new(temperatura);
-        }
-
-        Result<Temperatura?> sensacaoTermica = Temperatura.Criar(dto.SensacaoTermica.Celsius);
-
-        if (sensacaoTermica.IsFailure)
-        {
-            return new(sensacaoTermica);
-        }
+        Temperatura temperatura = Temperatura.Criar(dto.Temperatura.Celsius)!;
+        Temperatura sensacaoTermica = Temperatura.Criar(dto.SensacaoTermica.Celsius)!;
 
         Cidade cidade = new(
             new CidadeId(dto.Cidade.Id.Latitude, dto.Cidade.Id.Longitude),
             dto.Cidade.Nome
         );
 
-        Tempo tempo = new(
+        return new(
             dto.Id,
             dto.Descricao,
-            temperatura.Value!,
-            sensacaoTermica.Value!,
+            temperatura,
+            sensacaoTermica,
             dto.Humidade,
             cidade
         );
-
-        return Result<Tempo?>.Ok(tempo);
     }
 }

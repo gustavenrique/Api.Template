@@ -12,8 +12,6 @@ internal sealed class AuthMiddleware(
 
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
-        bool requisicaoAutorizada = true;
-
         bool apiPath = context.Request.Path.StartsWithSegments("/api", StringComparison.OrdinalIgnoreCase);
 
         if (_auth.Enabled && apiPath)
@@ -21,18 +19,15 @@ internal sealed class AuthMiddleware(
             string? apiKey = ExtrairApiKey(context.Request.Headers);
 
             if (string.IsNullOrEmpty(apiKey) || !_auth.ApiKeys.ContainsValue(apiKey))
-                requisicaoAutorizada = false;
-        }
+            {
+                context.Response.StatusCode = StatusCodes.Status401Unauthorized;
 
-        if (!requisicaoAutorizada)
-        {
-            context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                Response<object?> body = new(null, ["Preencha o api-key header"]);
 
-            await context.Response.WriteAsJsonAsync(
-                new Response<object?>(null, ["Preencha o api-key header"])
-            );
+                await context.Response.WriteAsJsonAsync(body);
 
-            return;
+                return;
+            }
         }
 
         await next(context);

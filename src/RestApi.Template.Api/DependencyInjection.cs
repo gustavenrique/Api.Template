@@ -42,7 +42,7 @@ internal static class DependencyInjection
     )
     {
         services
-            .Configure<AuthOptions>(configuration.GetSection(nameof(AuthOptions)));
+            .Configure<AuthOptions>(configuration.GetSection("Auth"));
 
         authSettings = services
             .BuildServiceProvider()

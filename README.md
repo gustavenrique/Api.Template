@@ -1,6 +1,8 @@
 # RestApi.Template
 Esta é uma template, que pode ser usada como base para REST APIs potencialmente complexas e monstruosas.
 
+Por enquanto, há apenas uma versão da template, com foco no tradicional CQS, juntamente do Dapper, para persistência.
+
 ## Como testar
 
 ```bash
@@ -34,7 +36,7 @@ find $PWD \
     bash -c 'sed -i "s/RestApi/NOME_EMPRESA/g" "$1"' _ {} \;
 ```
 
-Após a execução dos comandos, todos os `RestApi`s serão substituídos por seja lá qual for o nome determinado, tal como feito [aqui](https://github.com/plurish/api-template).
+Após a execução dos comandos, todos os `RestApi`s serão substituídos por seja lá qual for o nome determinado, tal como feito [aqui](https://github.com/plurish/api-template). A mesma estratégia pode ser seguida para substituir o "Template" pelo nome da aplicação em si.
 
 # Libraries
 Estas são as principais libraries externas usadas para lidar com problemas genéricos:

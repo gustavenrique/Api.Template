@@ -40,8 +40,8 @@ public static class DependencyInjection
     )
     {
         services
-            .Configure<Settings.Api>(config.GetSection(nameof(Settings.Api)))
-            .Configure<Settings.Database>(config.GetSection(nameof(Settings.Database)));
+            .Configure<Settings.Api>(config.GetSection("Api"))
+            .Configure<Settings.Database>(config.GetSection("Database"));
 
         ServiceProvider provider = services.BuildServiceProvider();
 
@@ -58,11 +58,12 @@ public static class DependencyInjection
     )
     {
         services.AddHealthChecks()
+            // TODO: adicionar health checker para a API consumida
             .AddSqlServer(
-                name: "DB-Log",
-                connectionString: dbSettings.Log.ConnectionString,
-                failureStatus: HealthStatus.Degraded,
-                tags: ["db", "mssql", "log"]
+                name: "Db-Xpto",
+                connectionString: dbSettings.Xpto.ConnectionString,
+                failureStatus: HealthStatus.Unhealthy,
+                tags: ["db", "mssql"]
             )
             .AddElasticsearch(
                 elasticsearchUri: apiSettings.Elasticsearch.Url,
