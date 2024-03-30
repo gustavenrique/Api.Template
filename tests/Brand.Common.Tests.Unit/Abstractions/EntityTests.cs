@@ -1,9 +1,10 @@
-﻿using FluentAssertions;
-using Brand.Common.Abstractions.Domain;
+﻿using Brand.Common.Abstractions.Domain;
 using Brand.Common.Abstractions.Domain.Events;
 using Brand.Common.Tests.Unit.Abstractions.Utilities;
-using static Brand.Common.Tests.Unit.Abstractions.Utilities.Fakes.Entity;
+using Common.UnitTests.Abstractions.Utilities;
+using FluentAssertions;
 using static Brand.Common.Tests.Unit.Abstractions.Utilities.Fakes.ValueObject;
+using static Common.UnitTests.Abstractions.Utilities.Fakes.Entity;
 
 namespace Brand.Common.Tests.Unit.Abstractions;
 

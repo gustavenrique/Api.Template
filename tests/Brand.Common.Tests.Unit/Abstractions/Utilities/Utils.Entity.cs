@@ -1,5 +1,6 @@
 ﻿using System.Collections;
-using static Brand.Common.Tests.Unit.Abstractions.Utilities.Fakes.Entity;
+using Common.UnitTests.Abstractions.Utilities;
+using static Common.UnitTests.Abstractions.Utilities.Fakes.Entity;
 
 namespace Brand.Common.Tests.Unit.Abstractions.Utilities;
 

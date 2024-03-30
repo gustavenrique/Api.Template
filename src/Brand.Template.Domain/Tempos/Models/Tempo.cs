@@ -1,6 +1,6 @@
-﻿using Brand.Template.Domain.Tempos.Models.ValueObjects;
-using Brand.Common.Abstractions.Domain;
+﻿using Brand.Common.Abstractions.Domain;
 using Brand.Common.Types.Output;
+using Brand.Template.Domain.Tempos.Models.ValueObjects;
 
 namespace Brand.Template.Domain.Tempos.Models;
 
