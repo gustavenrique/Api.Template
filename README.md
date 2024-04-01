@@ -8,10 +8,26 @@ Por enquanto, há apenas uma versão da template, com foco no tradicional CQS, j
 ```bash
 git clone https://github.com/gustavenrique/RestApi.Template.git
 
-dotnet run --project RestApi.Template/src/RestApi.Template.Api/RestApi.Template.Api.csproj
+cd RestApi.Template
+
+# Opção 1: rodar apenas projeto diretamente
+dotnet run --project src/RestApi.Template.Api/RestApi.Template.Api.csproj
+
+# Opção 2: rodar projeto através do docker
+docker build -t restapi/api/template -f src/RestApi.Template.Api/Dockerfile .
+docker run -p 5150:8080 --name restapi restapi/api/template
 
 # Abrir http://localhost:5150/docs
 ```
+
+Uma terceira opção seria subir todos os containers encontrados no `docker-compose.yml`, mas, para que tudo funcione como esperado, seria necessário configurar a aplicação de modo devido, por exemplo, através de um `.env` file com o seguinte conteúdo:
+
+```bash
+Api__Elasticsearch__Url='elasticsearch:9200'
+Serilog__WriteTo__0__Args__NodeUris='elasticsearch:9200'
+```
+
+Como a API seria rodada no modo release, o swagger não funcionaria. Nesse caso, os testes podem ser feitos através do arquivo `Api.http`
 
 ## Como renomear os diretórios, arquivos, namespaces e usings
 
@@ -32,8 +48,9 @@ find $PWD \
 
 # Atualizando usings e namespaces
 find $PWD \
-	-type f -exec \
-    bash -c 'sed -i "s/RestApi/NOME_EMPRESA/g" "$1"' _ {} \;
+	-type f \
+  -exec bash -c 'sed -i "s/RestApi/NOME_EMPRESA/g" "$1"' _ {} \;
+
 ```
 
 Após a execução dos comandos, todos os `RestApi`s serão substituídos por seja lá qual for o nome determinado, tal como feito [aqui](https://github.com/plurish/api-template). A mesma estratégia pode ser seguida para substituir o "Template" pelo nome da aplicação em si.
@@ -95,10 +112,10 @@ global:
     scrape_interval: 10s
 
 scrape_configs:
-    - job_name: 'api-xpto-job'
+    - job_name: 'api-template-job'
       metrics_path: /_metrics
       static_configs:
-        - targets: ['api-xpto:8080']
+        - targets: ['api-template:8080']
 ```
 
 # Estrutura

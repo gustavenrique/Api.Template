@@ -8,7 +8,7 @@ COPY ["./src/RestApi.Template.Api/RestApi.Template.Api.csproj", "./RestApi.Templ
 COPY ["./src/RestApi.Template.Application/RestApi.Template.Application.csproj", "./RestApi.Template.Application/"]
 COPY ["./src/RestApi.Template.Domain/RestApi.Template.Domain.csproj", "./RestApi.Template.Domain/"]
 COPY ["./src/RestApi.Template.Infra/RestApi.Template.Infra.csproj", "./RestApi.Template.Infra/"]
-COPY ["./src/RestApi.Common/RestApi.Common.csproj" "./RestApi.Common/"]
+COPY ["./src/RestApi.Common/RestApi.Common.csproj", "./RestApi.Common/"]
 COPY ./Directory.Build.props ./
 COPY ./.editorconfig ./
 

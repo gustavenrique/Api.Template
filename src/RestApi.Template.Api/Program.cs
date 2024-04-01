@@ -12,6 +12,8 @@ using RestApi.Common;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 {
+    builder.Configuration.AddEnvironmentVariables();
+
     builder.Services
         .AddCommon(builder.Configuration)
         .AddPresentation(
