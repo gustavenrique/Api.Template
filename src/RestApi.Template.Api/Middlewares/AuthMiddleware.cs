@@ -4,15 +4,16 @@ using RestApi.Template.Api.Filters.ResponseMapping;
 
 namespace Presentation.Middleware;
 
-internal sealed class AuthMiddleware(
-    IOptionsMonitor<AuthOptions> securitySettings
-) : IMiddleware
+internal sealed class AuthMiddleware(IOptionsMonitor<AuthOptions> options) : IMiddleware
 {
-    readonly AuthOptions _auth = securitySettings.CurrentValue;
+    readonly AuthOptions _auth = options.CurrentValue;
 
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
-        bool apiPath = context.Request.Path.StartsWithSegments("/api", StringComparison.OrdinalIgnoreCase);
+        bool apiPath = context
+            .Request
+            .Path
+            .StartsWithSegments("/api", StringComparison.OrdinalIgnoreCase);
 
         if (_auth.Enabled && apiPath)
         {
@@ -22,7 +23,7 @@ internal sealed class AuthMiddleware(
             {
                 context.Response.StatusCode = StatusCodes.Status401Unauthorized;
 
-                Response<object?> body = new(null, ["Preencha o api-key header"]);
+                Response<object?> body = new(null, ["Preencha o header 'api-key'"]);
 
                 await context.Response.WriteAsJsonAsync(body);
 

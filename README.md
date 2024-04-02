@@ -1,7 +1,7 @@
 # RestApi.Template
 Esta é uma template, que pode ser usada como base para REST APIs potencialmente complexas e monstruosas.
 
-Por enquanto, há apenas uma versão da template, com foco no tradicional CQS, juntamente do Dapper, para persistência.
+Por enquanto, há apenas uma versão da template, com foco no tradicional CQS e no padrão arquitetural REST, usando o Dapper para persistência.
 
 ## Como testar
 

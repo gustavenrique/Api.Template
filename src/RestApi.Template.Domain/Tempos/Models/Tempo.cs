@@ -33,7 +33,10 @@ public sealed class Tempo(
         var novaTemperatura = Temperatura
             .Criar(Temperatura.Celsius - celsiusDiminuidos);
 
-        if (!novaTemperatura.HasValue) return new Result(novaTemperatura);
+        if (!novaTemperatura.HasValue)
+        {
+            return new(novaTemperatura);
+        }
 
         decimal temperaturaAntiga = Temperatura.Celsius;
 
